@@ -45,6 +45,8 @@ class image_dataset:
                             if isdir(os.path.join(root_folder,d))]
         
         self.nr_classes = len(self.class_names)
+        
+        self.mini_batch_size = 32
 
         print("Under root folder\n\t{0}\n"
               "I have found the following {1} subfolders/classes:\n"
@@ -88,6 +90,9 @@ class image_dataset:
                 
         self.original_order = self.all_dataset_items.copy()
         
+        # currently we assume that we work with color images!
+        self.nr_color_channels = 3
+        
     
     
     def load_single_image(self, absolute_filename):
@@ -96,14 +101,14 @@ class image_dataset:
         and preprocess it
         """
         
-        img = cv2.imread(absolute_filename)
-        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)                
-        img = cv2.resize(img,
-                         self.img_size,
-                         interpolation=cv2.INTER_AREA)
+        img_orig = cv2.imread(absolute_filename)
+        img_orig = cv2.cvtColor(img_orig, cv2.COLOR_BGR2RGB)                
+        img_orig = cv2.resize(img_orig,
+                              self.img_size,
+                              interpolation=cv2.INTER_AREA)
         
         if self.inputs_are_for_VGG16:                    
-            x = img.astype(float)
+            x = img_orig.astype(float)
             x = np.expand_dims(x, axis=0)
             #print("x has shape", x.shape)                
             #print("x has mean", np.mean(x))        
@@ -117,9 +122,9 @@ class image_dataset:
             #print("x has mean", np.mean(x))   
             img_preprocessed = x.reshape((self.img_size[0],self.img_size[1],3))
         else:            
-            img_preprocessed = img * (1.0 / 255.0)
+            img_preprocessed = img_orig * (1.0 / 255.0)
         
-        return img, img_preprocessed
+        return img_orig, img_preprocessed
         
         
        
@@ -134,9 +139,9 @@ class image_dataset:
         class_name      = self.all_dataset_items[idx][2]
         teacher_vec     = self.all_dataset_items[idx][3]
         
-        img, img_preprocessed = self.load_single_image(image_filename)
+        img_orig, img_preprocessed = self.load_single_image(image_filename)
         
-        return img, img_preprocessed, class_id, class_name, teacher_vec
+        return img_orig, img_preprocessed, class_id, class_name, teacher_vec
     
     
     def get_random_image(self):        
@@ -165,68 +170,91 @@ class image_dataset:
         random.seed( 0 )
         self.shuffle()
 
+    # ---------------------------------------
 
-
-
-def get_nr_batches(the_ds):
-    """
-    Given the batch size specified by PARAM_BATCH_SIZE
-    computes how many batches we have to process for the
-    specified dataset
-    """
-    
-    nr_batches = (int) (the_ds.nr_images / PARAM_BATCH_SIZE)
-    if the_ds.nr_images % PARAM_BATCH_SIZE != 0:
-        nr_batches +=1
-    return nr_batches
-
-
-def get_image_batch(the_ds, batch_idx):
-    """
-    Helper functions for image batching
-    Given a dataset and a batch size `PARAM_BATCH_SIZE`, the image batcher
-    function returns the i-th specified image batch.
-    """
-
-    nr_batches = get_nr_batches(the_ds)
-    
-    # 1. what is the size of the last batch?    
-    last_batch_size = PARAM_BATCH_SIZE
-    if the_ds.nr_images % PARAM_BATCH_SIZE != 0:
-        last_batch_size = the_ds.nr_images % PARAM_BATCH_SIZE
-    
-    # 2. what is the final size of the current batch
-    #    with index <batch_idx>?
-    final_batch_size = PARAM_BATCH_SIZE    
-    if batch_idx == nr_batches-1:
-        # this is the last batch!
-        final_batch_size = last_batch_size
+    def set_mini_batch_size(self, mini_batch_size):
+        """
+        Set the size of a single mini batch.
         
-    # 3. prepare input X and output Y matrices
-    height      = PARAM_INPUT_SHAPE[0]
-    width       = PARAM_INPUT_SHAPE[1]
-    nr_channels = PARAM_INPUT_SHAPE[2]
-    X = np.zeros( (final_batch_size,height,width,nr_channels) )
-    Y = np.zeros( (final_batch_size,the_ds.nr_classes) )
-    
-    # 4. prepare the batch
-    for batch_offset in range(0, final_batch_size):
+        What is a mini batch?
+        For faster training a (C)NN, we divide
+        the dataset into small mini batches and
+        compute an update of the model after
+        each mini batch presentation and error
+        computation.
+        """
+        self.mini_batch_size = mini_batch_size
         
-        # 4.1 compute index of image to retrieve
-        img_idx = batch_idx*PARAM_BATCH_SIZE + batch_offset
-
-        # 4.2 get that image
-        img, img_processed, class_id, class_name, teacher_vec = \
-             the_ds.get_image_by_index( img_idx )
-
-        # 4.3
-        # put the 3d image into the 4D array
-        # since Keras wants as input for
-        # the training method fit() a 4D array            
-        X[batch_offset,:,:,:] = img_processed
-
-        # the desired output is a 2D array
-        Y[batch_offset,:] = teacher_vec
         
-    # 5. return the input and output batch matrices
-    return X,Y
+    def get_nr_mini_batches(self):
+        """
+        Given the current batch size 
+        computs how many mini batches we have to process for the
+        specified dataset in order to divide it into
+        a complete set of mini batches
+        """
+
+        nr_mini_batches = (int) (self.nr_images / self.mini_batch_size)
+        
+        # If the number of images is not an integer multiple
+        # of the batch size, we need an additional mini batch
+        # more
+        if self.nr_images % self.mini_batch_size != 0:            
+            nr_mini_batches +=1
+                
+        return nr_mini_batches
+
+
+    def get_image_mini_batch(self, mini_batch_idx):
+        """
+        Returns the idx-th specified image batch.
+        """
+
+        # 1. how many mini-batches are there at all?
+        nr_mini_batches = self.get_nr_mini_batches()
+
+        
+        # 2. what is the size of the last batch?    
+        last_mini_batch_size = self.mini_batch_size
+        division_rest = self.nr_images % self.mini_batch_size
+        if division_rest != 0:
+            last_mini_batch_size = division_rest
+
+            
+        # 3. what is the final size of the current mini batch
+        #    with index <batch_idx>?
+        final_mini_batch_size = self.mini_batch_size   
+        if mini_batch_idx == nr_mini_batches-1:
+            # this is the last mini batch!
+            final_mini_batch_size = last_mini_batch_size
+
+            
+        # 4. prepare input X and output Y matrices
+        height = self.img_size[0]
+        width  = self.img_size[1]        
+        X = np.zeros( (final_mini_batch_size,height,width,self.nr_color_channels) )
+        Y = np.zeros( (final_mini_batch_size,self.nr_classes) )
+
+        
+        # 5. prepare the batch
+        for mini_batch_offset in range(0, final_mini_batch_size):
+
+            # 5.1 compute index of image to retrieve
+            img_idx = mini_batch_idx*self.mini_batch_size + mini_batch_offset
+
+            # 5.2 get that image
+            img_orig, img_processed, class_id, class_name, teacher_vec = \
+                 self.get_image_by_index( img_idx )
+
+            # 5.3
+            # put the 3d image into the 4D array
+            # since Keras wants as input for
+            # the training method fit() a 4D array            
+            X[mini_batch_offset,:,:,:] = img_processed
+
+            # the desired output is a 2D array
+            Y[mini_batch_offset,:] = teacher_vec
+
+            
+        # 6. return the input and output batch matrices
+        return X,Y
