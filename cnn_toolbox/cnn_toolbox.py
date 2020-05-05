@@ -258,3 +258,89 @@ class image_dataset:
             
         # 6. return the input and output batch matrices
         return X,Y
+    
+    
+# -------------------------------------------------------------
+
+from tensorflow.keras.preprocessing import image
+from tensorflow.keras.applications.vgg16 import preprocess_input
+from tensorflow.keras import backend as K
+from tensorflow.keras import models, layers
+    
+    
+def create_cnn_model(nr_outputs,
+                     input_shape,
+                     optimization_method="adam",
+                     model_name="inc_nr_filters"):
+    """
+    Here we create the desired CNN model using the Keras API and return it
+    """
+
+    K.clear_session()
+
+    model = models.Sequential()
+    
+    if model_name == "inc_nr_filters":
+
+        #1+2
+        model.add(layers.Conv2D(32, (3, 3), activation='relu', input_shape=input_shape))
+        model.add(layers.MaxPooling2D((2, 2)))
+
+        #3+4
+        model.add(layers.Conv2D(64, (3, 3), activation='relu'))
+        model.add(layers.MaxPooling2D((2, 2)))
+
+        #5+6
+        model.add(layers.Conv2D(128, (3, 3), activation='relu'))
+        model.add(layers.MaxPooling2D((2, 2)))
+
+        #7+8
+        model.add(layers.Conv2D(256, (3, 3), activation='relu'))
+        model.add(layers.MaxPooling2D((2, 2)))
+        
+        #9+10
+        model.add(layers.Conv2D(512, (3, 3), activation='relu'))
+        model.add(layers.MaxPooling2D((2, 2)))
+        
+        #11+12
+        model.add(layers.Conv2D(1024, (3, 3), activation='relu'))
+        model.add(layers.MaxPooling2D((2, 2)))        
+        
+    elif model_name == "same_nr_filters":
+        
+        #1+2
+        model.add(layers.Conv2D(256, (3, 3), activation='relu', input_shape=input_shape))
+        model.add(layers.MaxPooling2D((2, 2)))
+
+        #3+4
+        model.add(layers.Conv2D(256, (3, 3), activation='relu'))
+        model.add(layers.MaxPooling2D((2, 2)))
+
+        #5+6
+        model.add(layers.Conv2D(256, (3, 3), activation='relu'))
+        model.add(layers.MaxPooling2D((2, 2)))
+
+        #7+8
+        model.add(layers.Conv2D(256, (3, 3), activation='relu'))
+        model.add(layers.MaxPooling2D((2, 2)))
+        
+        #9+10
+        model.add(layers.Conv2D(256, (3, 3), activation='relu'))
+        model.add(layers.MaxPooling2D((2, 2)))
+        
+        #11+12
+        model.add(layers.Conv2D(256, (3, 3), activation='relu'))
+        model.add(layers.MaxPooling2D((2, 2)))
+        
+
+    # add MLP
+    model.add(layers.Flatten())
+    model.add(layers.Dense(2048, activation='relu', name="fc1"))
+    model.add(layers.Dense(nr_outputs, activation='softmax', name="output"))
+
+
+    # for all models: use the same optimizer, loss and learn rate:
+    model.compile(optimizer=optimization_method, loss='categorical_crossentropy')
+
+    # return the model just built
+    return model
