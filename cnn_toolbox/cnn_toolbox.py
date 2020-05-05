@@ -8,6 +8,11 @@ import random
 print("Welcome to image_dataset class v1.0 by Juergen Brauer")
 
 
+
+# -------------------------------------------------
+# Helper class for an image dataset
+# -------------------------------------------------
+
 class image_dataset:
     """
     Provides access to a complete image dataset, as imagenette2 or imagewoof
@@ -260,7 +265,16 @@ class image_dataset:
         return X,Y
     
     
-# -------------------------------------------------------------
+
+    
+    
+    
+    
+# -------------------------------------------------
+# Helper function for creating CNN of different
+# sizes
+# -------------------------------------------------
+
 
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.vgg16 import preprocess_input
@@ -344,3 +358,223 @@ def create_cnn_model(nr_outputs,
 
     # return the model just built
     return model
+
+
+
+
+# -------------------------------------------------
+# Helper function for training a CNN
+# -------------------------------------------------
+
+from datetime import datetime
+
+def train_cnn_one_epoch(your_cnn, your_train_ds, show_progress=True):
+    """
+    Given the specified model <your_cnn> and
+    the specified dataset <your_train_ds>
+    train the model for exactly one epoch,
+    i.e. such that each training images is shown
+    exactly one to the model
+    """
+    
+    time_start_epoch = datetime.now()
+        
+    # 1. make sure, we use another compilation of
+    #    mini batches in this training epoch
+    your_train_ds.shuffle()
+    
+    
+    # 2. compute how many mini batches we have to train
+    nr_mini_batches = your_train_ds.get_nr_mini_batches()
+    
+    
+    # 3. for all mini batches to train ...
+    img_idx = 0
+    for mini_batch_idx in range(0,nr_mini_batches):
+
+        # 3.1 get the next mini batch of training images and labels
+        X,Y = your_train_ds.get_image_mini_batch(mini_batch_idx)
+
+        # 3.2 how train the model with that mini batch
+        your_cnn.fit(X,Y,verbose=0)        
+        
+        # 3.3 output how far we are
+        if show_progress:
+            print("Finished training batch {0} of {1}. Trained images so far: {2}"
+                   .format(mini_batch_idx+1,
+                           nr_mini_batches,
+                           (mini_batch_idx+1)*your_train_ds.mini_batch_size))
+
+    time_end_epoch = datetime.now()
+    time_delta_epoch = time_end_epoch - time_start_epoch
+    print("Time needed for training this epoch: {0}"
+           .format(time_delta_epoch))
+    
+
+
+
+# -------------------------------------------------
+# Helper function for testing a CNN
+# -------------------------------------------------
+            
+import numpy as np
+
+def test_cnn(your_cnn,
+             your_test_ds,
+             show_infos=False):
+    """
+    Given the specified model <your_cnn> and
+    the specified test dataset <your_test_ds>
+    test how good the model can predict the
+    right class for each of the test images
+    in the test dataset
+    """
+    
+    print("Testing model on dataset: {0}".format(your_test_ds.name))
+    
+    # 1. compute how many mini-batches to test
+    nr_mini_batches = your_test_ds.get_nr_mini_batches()
+    print("There are {0} testing images. So for a batch size of "
+           "{1} we have to test {2} batches."
+           .format(your_test_ds.nr_images,
+                   your_test_ds.mini_batch_size,
+                   nr_mini_batches))
+       
+    
+    # 2. for all mini batches to test ...
+    correct = 0
+    for mini_batch_idx in range(0,nr_mini_batches):
+
+        # 2.1
+        # get the next batch of test images
+        X,Y = your_test_ds.get_image_mini_batch(mini_batch_idx)
+                
+        # 2.2
+        # classify the test images now!
+        neuron_outputs = your_cnn.predict(X)
+        
+        # 2.3 
+        # for debugging: log neuron outputs?
+        # helps to check, whether the outputs are still valid
+        # or e.g. nan values
+        show_neuron_outputs_sometimes = False
+        if show_neuron_outputs_sometimes and mini_batch_idx % 5 == 0:
+            print("neuron_outputs.shape={}".format( neuron_outputs.shape ))
+            print("neuron_outputs={}".format( neuron_outputs ))
+                    
+        # 2.4
+        # compare predicted and actual class indices
+        nr_imgs_tested = Y.shape[0]
+        for test_img_idx in range(0, nr_imgs_tested):
+            
+            # get predicted class index
+            predicted_class_idx = np.argmax(neuron_outputs[test_img_idx].reshape(-1))
+            
+            # get actual class index
+            actual_class_idx = np.argmax(Y[test_img_idx].reshape(-1))
+        
+            # was the prediction correct?
+            if predicted_class_idx == actual_class_idx:
+                   correct +=1
+            
+        # 2.5
+        # output how far we are with the test
+        print("Tested mini batch {0} of {1}. Tested images so far: {2}"
+               .format(mini_batch_idx+1,
+                       nr_mini_batches,
+                       (mini_batch_idx+1)*your_test_ds.mini_batch_size))
+            
+        
+    # 3. calculate classification rate
+    correct_rate = float(correct) / float(your_test_ds.nr_images)
+        
+    print("correctly classified: {0} of {1} images of dataset '{2}':"
+          " --> classification rate: {:.1f}"
+          .format(correct,
+                  your_test_ds.nr_images,
+                  your_test_ds.name,
+                  correct_rate))
+    
+    
+    # 4. return correct classification rate
+    return correct_rate
+
+
+
+# -------------------------------------------------
+# Helper function for checking whether there are
+# GPUs available or not on the current system
+# -------------------------------------------------
+
+import tensorflow as tf
+
+def gpu_check():
+    """
+    Check whether we have GPUs available or not
+    """        
+    list_gpus_available = tf.config.list_physical_devices('GPU')
+    print("The following GPUs are available: {0}".format(list_gpus_available) )    
+    print("Nr of GPUs available: {0}".format(len(list_gpus_available)) )
+
+    
+    
+    
+# -------------------------------------------------
+# Helper function for controlling whether we use
+# the same or different start weights
+# -------------------------------------------------    
+    
+import random
+
+def initialize_pseudo_random_number_generators(seed_value):
+    """
+    For repeating experiments
+    with the same or different start weights
+    we control the pseudo-random number generators
+    used by TensorFlow and Keras for
+    initializing the weights
+    """
+    
+    from numpy.random import seed
+    seed( seed_value )
+    tf.random.set_seed( seed_value )
+    
+ 
+ 
+
+# -------------------------------------------------
+# Helper function for retrieving weight values
+# from a CNN layer
+# ------------------------------------------------- 
+def get_weights_from_conv_layer(your_model, conv_layer_name, show_info=False):
+    """
+    Returns the weights and biases from the specified
+    filter layer
+    """
+    
+    for lay in your_model.layers:
+        
+        if lay.name == conv_layer_name:
+        
+            # get the list of weights from that layer
+            #
+            # note:
+            # get_weights() returns a list with two elements:
+            # list element #0: filter weights
+            # list element #1: bias weights
+            filter_weights = lay.get_weights()[0]
+            bias_weights   = lay.get_weights()[1]
+            
+            # show some information about this entities?
+            if show_info:
+                print("filter_weights has shape: {0}".format(filter_weights.shape))
+                print("bias_weights has shape: {0}".format(bias_weights.shape))
+
+                print("filter_weights has type: {0}".format(type(filter_weights)))
+                print("bias_weights has type: {0}".format(type(bias_weights)))
+        
+            return filter_weights, bias_weights
+        
+        
+    return "Sorry, specified layer {0} not found!".format(conv_layer_name)
+
