@@ -32,7 +32,8 @@ class image_dataset:
                  name,
                  root_folder,
                  img_size,
-                 inputs_are_for_VGG16=False):
+                 inputs_are_for_VGG16=False,
+                 dev_mode=True):
         """
         Generate a Python list <all_dataset_items>
         of available images
@@ -72,6 +73,7 @@ class image_dataset:
                   .format(len(filenames), subfolder_name) )
             
             # For each image filename in current subfolder ...
+            example_imgs_for_current_class = 0
             for filename in filenames:
                 
                 teacher_vec = np.zeros( self.nr_classes )
@@ -81,7 +83,18 @@ class image_dataset:
                     [filename,
                      class_id,
                      class_name,
-                     teacher_vec] )
+                     teacher_vec] )    
+                
+                example_imgs_for_current_class += 1
+                
+                # in developer mode, we store only
+                # 5 images for each class,
+                # this lets you quickly test
+                # all following processing steps
+                # using a very lightweight dataset
+                if dev_mode and example_imgs_for_current_class == 5:
+                    break
+                
         
         self.nr_images = len(self.all_dataset_items)
         print("In total there are {} images"
@@ -487,7 +500,7 @@ def test_cnn(your_cnn,
     correct_rate = float(correct) / float(your_test_ds.nr_images)
         
     print("correctly classified: {0} of {1} images of dataset '{2}':"
-          " --> classification rate: {:.1f}"
+          " --> classification rate: {3:.1f}"
           .format(correct,
                   your_test_ds.nr_images,
                   your_test_ds.name,
@@ -583,13 +596,95 @@ def get_weights_from_conv_layer(your_model, conv_layer_name, show_info=False):
 # Helper function for training a CNN (many epochs)
 # -------------------------------------------------
 
-def train_cnn_many_epochs(your_cnn, your_train_ds, show_progress=True):
+import random
+
+def train_cnn_complete(your_cnn,
+                       your_train_ds,
+                       your_test_ds,
+                       same_shuffling = False,
+                       stop_epochnr = None,
+                       stop_classification_rate_train = None,
+                       show_progress=True):
     """
     Given the specified model <your_cnn> and
     the specified dataset <your_train_ds>
     train the model till some stopping criterion is met
     """
     
+    # 1. reset start order of training samples
+    your_train_ds.reset_original_order()
+
     
+    # 2. if the user wants the same order of
+    #    mini-batches between training different models
+    #    we reproduce the same order again and again
+    #    by setting the random seed now to a defined
+    #    value
+    if same_shuffling == True:
+        random.seed(0)
+    
+    
+    # 3. count how many epochs we have already trained
+    nr_epochs_trained = 0
+    
+    
+    # 4. during training we will store classification
+    #    rates for training and testing dataset
+    history = { "cl_rate_train": [],
+                "cl_rate_test" : [] }
+    
+    
+    # 5. train an epoch in each loop
+    continue_training = True
+    while continue_training:
+        
+        # 5.1
+        # shuffle the training data for the next
+        # training epoch
+        your_train_ds.shuffle()
+        
+        # 5.2
+        # train one epoch
+        train_cnn_one_epoch(your_cnn, your_train_ds, show_progress=True)
+        
+        # 5.3
+        # compute classification rate on
+        # training and testing data
+        cl_rate_train = test_cnn(your_cnn, your_train_ds)
+        cl_rate_test  = test_cnn(your_cnn, your_test_ds)
+        
+        # 5.4
+        # store both rates
+        history["cl_rate_train"].append( cl_rate_train )
+        history["cl_rate_test"].append( cl_rate_test )
+        
+        # 5.5
+        # one epoch trained more
+        nr_epochs_trained += 1
+        
+        # 5.6
+        # show progress
+        if show_progress:            
+            print("Training epoch {0} finished.".format(nr_epochs_trained))
+            print("Classification rates: train={0:.2f}, test={1:.2f}"
+                  .format(cl_rate_train, cl_rate_test))
+        
+        
+        # 5.7
+        # one of the stopping criteria met?
+        
+        # maximum nr of epochs reached?
+        if stop_epochnr != None:
+            if nr_epochs_trained == stop_epochnr:
+                continue_training = False
+                
+        # classification threshold for training data reached?
+        if stop_classification_rate_train != None:
+            if cl_rate_train >= stop_classification_rate_train:
+                continue_training = False
+    
+    
+    # 6. return data about the training history
+    return history
     
     
