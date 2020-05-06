@@ -166,14 +166,12 @@ class image_dataset:
         random.shuffle( self.all_dataset_items )
 
         
-    def set_defined_start_order(self):
+    def reset_original_order(self):
         """
         Sets the order of the images in the list
         to a defined initial state
         """
         self.all_dataset_items = self.original_order.copy()
-        random.seed( 0 )
-        self.shuffle()
 
     # ---------------------------------------
 
@@ -363,7 +361,7 @@ def create_cnn_model(nr_outputs,
 
 
 # -------------------------------------------------
-# Helper function for training a CNN
+# Helper function for training a CNN (one epoch)
 # -------------------------------------------------
 
 from datetime import datetime
@@ -578,3 +576,20 @@ def get_weights_from_conv_layer(your_model, conv_layer_name, show_info=False):
         
     return "Sorry, specified layer {0} not found!".format(conv_layer_name)
 
+
+
+
+# -------------------------------------------------
+# Helper function for training a CNN (many epochs)
+# -------------------------------------------------
+
+def train_cnn_many_epochs(your_cnn, your_train_ds, show_progress=True):
+    """
+    Given the specified model <your_cnn> and
+    the specified dataset <your_train_ds>
+    train the model till some stopping criterion is met
+    """
+    
+    
+    
+    
