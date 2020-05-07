@@ -2,12 +2,10 @@ import sys
 sys.path.append("../../cnn_toolbox")
 print(sys.path)
 
-print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
-
 # 1. get the random seed value
 import sys
 print("Here are all command line arguments: {0}".format( sys.argv ) )
-rnd_seed_value = sys.argv[1]
+rnd_seed_value = int(sys.argv[1])
 print("I will now conduct experiment with random seed: {0}".format( rnd_seed_value ) )
 
 
@@ -39,27 +37,35 @@ ds_test = image_dataset(name="imagenette2-test",
 #    i.e. classification results on training and testing dataset
 #    after each epoch
 
-from cnn_toolbox import create_cnn_model,\
+from cnn_toolbox import initialize_pseudo_random_number_generators,\
+                        create_cnn_model,\
+                        get_weights_from_conv_layer,\
                         train_cnn_complete,\
                         prepare_output_folder,\
                         save_history
 
-# 4.1 create the CNN
+# 4.1 set start value for random number generation
+initialize_pseudo_random_number_generators( rnd_seed_value )
+
+# 4.2 create the CNN
 model = create_cnn_model(model_name = "same_nr_filters",
                          input_shape = img_shape,
                          nr_outputs = ds_train.nr_classes)
+model.summary()
 
-# 4.2 train the CNN completely
+# 4.3 plausiblity check whether the weights are really different
+filter_weights, bias_weights = get_weights_from_conv_layer(model, "conv2d", show_info=True)
+print("Here are filter 0 weights:")
+print(filter_weights[:,:,:,0])
+
+# 4.4 train the CNN completely
 history = train_cnn_complete(model,
                              ds_train,
                              ds_test,
                              stop_epochnr=2)
 
-# 4.3 save training history for further later analysis
+# 4.5 save training history for further later analysis
 output_folder = "saved_model_histories"
 prepare_output_folder(output_folder)
 fname = "{0}/model_seed{1:0>3}.history".format( output_folder, rnd_seed_value )
 save_history(history, fname)
-
-
-print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
