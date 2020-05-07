@@ -401,6 +401,7 @@ def train_cnn_one_epoch(your_cnn, your_train_ds, show_progress=True):
     
     # 3. for all mini batches to train ...
     img_idx = 0
+    nr_images_trained = 0
     for mini_batch_idx in range(0,nr_mini_batches):
 
         # 3.1 get the next mini batch of training images and labels
@@ -410,15 +411,18 @@ def train_cnn_one_epoch(your_cnn, your_train_ds, show_progress=True):
         your_cnn.fit(X,Y,verbose=0)        
         
         # 3.3 output how far we are
+        nr_images_trained += X.shape[0]
         if show_progress:
-            print("Finished training batch {0} of {1}. Trained images so far: {2}"
+            print("train_cnn_one_epoch: "
+                  "finished training batch {0} of {1}. Trained images so far: {2}"
                    .format(mini_batch_idx+1,
                            nr_mini_batches,
-                           (mini_batch_idx+1)*your_train_ds.mini_batch_size))
+                           nr_images_trained))
 
     time_end_epoch = datetime.now()
     time_delta_epoch = time_end_epoch - time_start_epoch
-    print("Time needed for training this epoch: {0}"
+    print("train_cnn_one_epoch: "
+          "time needed for training this epoch: {0}"
            .format(time_delta_epoch))
     
 
@@ -441,19 +445,22 @@ def test_cnn(your_cnn,
     in the test dataset
     """
     
-    print("Testing model on dataset: {0}".format(your_test_ds.name))
+    if show_infos:
+        print("test_cnn: testing model on dataset: {0}".format(your_test_ds.name))
     
     # 1. compute how many mini-batches to test
     nr_mini_batches = your_test_ds.get_nr_mini_batches()
-    print("There are {0} testing images. So for a batch size of "
-           "{1} we have to test {2} batches."
-           .format(your_test_ds.nr_images,
-                   your_test_ds.mini_batch_size,
-                   nr_mini_batches))
+    print("test_cnn: "
+          "there are {0} testing images. So for a batch size of "
+          "{1} we have to test {2} batches."
+          .format(your_test_ds.nr_images,
+                  your_test_ds.mini_batch_size,
+                  nr_mini_batches))
        
     
     # 2. for all mini batches to test ...
     correct = 0
+    nr_images_tested = 0
     for mini_batch_idx in range(0,nr_mini_batches):
 
         # 2.1
@@ -470,8 +477,10 @@ def test_cnn(your_cnn,
         # or e.g. nan values
         show_neuron_outputs_sometimes = False
         if show_neuron_outputs_sometimes and mini_batch_idx % 5 == 0:
-            print("neuron_outputs.shape={}".format( neuron_outputs.shape ))
-            print("neuron_outputs={}".format( neuron_outputs ))
+            print("test_cnn: neuron_outputs.shape={}"
+                  .format( neuron_outputs.shape ))
+            print("test_cnn: neuron_outputs={}"
+                  .format( neuron_outputs ))
                     
         # 2.4
         # compare predicted and actual class indices
@@ -490,17 +499,19 @@ def test_cnn(your_cnn,
             
         # 2.5
         # output how far we are with the test
-        print("Tested mini batch {0} of {1}. Tested images so far: {2}"
+        nr_images_tested += X.shape[0]
+        print("test_cnn: tested mini batch {0} of {1}. Tested images so far: {2}"
                .format(mini_batch_idx+1,
                        nr_mini_batches,
-                       (mini_batch_idx+1)*your_test_ds.mini_batch_size))
+                       nr_images_tested))
             
         
     # 3. calculate classification rate
     correct_rate = float(correct) / float(your_test_ds.nr_images)
         
-    print("correctly classified: {0} of {1} images of dataset '{2}':"
-          " --> classification rate: {3:.1f}"
+    print("test_cnn: "
+          "correctly classified: {0} of {1} images of dataset '{2}':"
+          " --> classification rate: {3:.2f}"
           .format(correct,
                   your_test_ds.nr_images,
                   your_test_ds.name,
@@ -611,6 +622,13 @@ def train_cnn_complete(your_cnn,
     train the model till some stopping criterion is met
     """
     
+    print("\n\n")
+    print("-----------------------------------------------")
+    print("train_cnn_complete: starting to train the model")
+    print("-----------------------------------------------")
+    
+    time_start_training = datetime.now()
+    
     # 1. reset start order of training samples
     your_train_ds.reset_original_order()
 
@@ -633,44 +651,62 @@ def train_cnn_complete(your_cnn,
     history = { "cl_rate_train": [],
                 "cl_rate_test" : [] }
     
+    # 5. compute classification rate on
+    #    training and testing data BEFORE training ... 
+    cl_rate_train = test_cnn(your_cnn, your_train_ds)
+    cl_rate_test  = test_cnn(your_cnn, your_test_ds)        
     
-    # 5. train an epoch in each loop
+    # 6. ... and store both rates
+    history["cl_rate_train"].append( cl_rate_train )
+    history["cl_rate_test"].append( cl_rate_test )
+    
+    
+    # 7. train an epoch in each loop
     continue_training = True
     while continue_training:
         
-        # 5.1
+        # 7.1
         # shuffle the training data for the next
         # training epoch
         your_train_ds.shuffle()
         
-        # 5.2
+        # 7.2
         # train one epoch
+        print("\n")
+        print("********************************************************")
+        print("train_cnn_complete: starting training epoch {0}"
+              .format(nr_epochs_trained+1))        
         train_cnn_one_epoch(your_cnn, your_train_ds, show_progress=True)
+        print("********************************************************")
+        print("\n")
         
-        # 5.3
+        # 7.3
         # compute classification rate on
         # training and testing data
         cl_rate_train = test_cnn(your_cnn, your_train_ds)
         cl_rate_test  = test_cnn(your_cnn, your_test_ds)
         
-        # 5.4
+        # 7.4
         # store both rates
         history["cl_rate_train"].append( cl_rate_train )
         history["cl_rate_test"].append( cl_rate_test )
         
-        # 5.5
+        # 7.5
         # one epoch trained more
         nr_epochs_trained += 1
         
-        # 5.6
+        # 7.6
         # show progress
         if show_progress:            
-            print("Training epoch {0} finished.".format(nr_epochs_trained))
-            print("Classification rates: train={0:.2f}, test={1:.2f}"
+            print("train_cnn_complete: "
+                  "training epoch {0} finished."
+                  .format(nr_epochs_trained))
+            print("train_cnn_complete: "
+                  "classification rates: train={0:.2f}, test={1:.2f}"
                   .format(cl_rate_train, cl_rate_test))
         
         
-        # 5.7
+        # 7.7
         # one of the stopping criteria met?
         
         # maximum nr of epochs reached?
@@ -682,9 +718,63 @@ def train_cnn_complete(your_cnn,
         if stop_classification_rate_train != None:
             if cl_rate_train >= stop_classification_rate_train:
                 continue_training = False
+                
+                
+    time_end_training = datetime.now()
+    time_delta_training = time_end_training - time_start_training
+    print("\n\n")
+    print("-----------------------------------------------")
+    print("train_cnn_complete: "
+          "time needed for training the complete model: {0}"
+           .format(time_delta_training))    
+    print("-----------------------------------------------")
     
     
-    # 6. return data about the training history
+    # 8. return data about the training history
     return history
     
     
+
+# -------------------------------------------------
+# Helper functions to save/load the training
+# history of a model
+# -------------------------------------------------
+
+import pickle
+
+
+def save_history(history, fname):
+    """
+    Using pickle, the training history information
+    is saved into the specified file
+    """
+    fobj = open(fname, "wb")
+    pickle.dump(history, fobj)
+    fobj.close()
+    
+    
+    
+def load_history(fname):
+    """
+    Using pickle, the training history information
+    is loaded from the specified file
+    """
+    fobj = open(fname, "rb")
+    history = pickle.load(fobj)
+    fobj.close()
+    return history
+
+
+
+# -------------------------------------------------
+# Helper function to prepare an experiment output
+# folder
+# -------------------------------------------------
+
+from pathlib import Path
+
+def prepare_output_folder(folder_name):
+    """
+    Creates the specified folder, if it does not yet exist
+    """
+    Path(folder_name).mkdir(parents=True, exist_ok=True)
