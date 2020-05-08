@@ -20,7 +20,8 @@ img_shape = (224,224,3)
 
 from cnn_toolbox import image_dataset
 
-root_folder = "/media/juebrauer/Seagate Expansion Drive/datasets/01_images/18_imagenette2/320px/"
+#root_folder = "/media/juebrauer/Seagate Expansion Drive/datasets/01_images/18_imagenette2/320px/"
+root_folder = "/home/juebrauer/data_jb/02_datasets/imagenette2/320px/"
 root_folder_train = root_folder + "train/"
 root_folder_test  = root_folder + "val/"
 
@@ -62,7 +63,7 @@ print(filter_weights[:,:,:,0])
 history = train_cnn_complete(model,
                              ds_train,
                              ds_test,
-                             stop_epochnr=2)
+                             stop_epochnr=100)
 
 # 4.5 save training history for further later analysis
 output_folder = "saved_model_histories"

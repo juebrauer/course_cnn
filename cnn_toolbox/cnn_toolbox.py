@@ -33,7 +33,7 @@ class image_dataset:
                  root_folder,
                  img_size,
                  inputs_are_for_VGG16=False,
-                 dev_mode=True):
+                 dev_mode=False):
         """
         Generate a Python list <all_dataset_items>
         of available images
@@ -52,7 +52,7 @@ class image_dataset:
         
         self.nr_classes = len(self.class_names)
         
-        self.mini_batch_size = 32
+        self.mini_batch_size = 128
 
         print("Under root folder\n\t{0}\n"
               "I have found the following {1} subfolders/classes:\n"
@@ -412,7 +412,7 @@ def train_cnn_one_epoch(your_cnn, your_train_ds, show_progress=True):
         
         # 3.3 output how far we are
         nr_images_trained += X.shape[0]
-        if show_progress:
+        if show_progress and mini_batch_idx % 10 == 0:
             print("train_cnn_one_epoch: "
                   "finished training batch {0} of {1}. Trained images so far: {2}"
                    .format(mini_batch_idx+1,
@@ -436,7 +436,7 @@ import numpy as np
 
 def test_cnn(your_cnn,
              your_test_ds,
-             show_infos=False):
+             show_infos=True):
     """
     Given the specified model <your_cnn> and
     the specified test dataset <your_test_ds>
@@ -500,10 +500,11 @@ def test_cnn(your_cnn,
         # 2.5
         # output how far we are with the test
         nr_images_tested += X.shape[0]
-        print("test_cnn: tested mini batch {0} of {1}. Tested images so far: {2}"
-               .format(mini_batch_idx+1,
-                       nr_mini_batches,
-                       nr_images_tested))
+        if show_infos and mini_batch_idx % 10 == 0:
+            print("test_cnn: tested mini batch {0} of {1}. Tested images so far: {2}"
+                   .format(mini_batch_idx+1,
+                           nr_mini_batches,
+                           nr_images_tested))
             
         
     # 3. calculate classification rate
@@ -533,8 +534,18 @@ import tensorflow as tf
 def gpu_check():
     """
     Check whether we have GPUs available or not
-    """        
-    list_gpus_available = tf.config.list_physical_devices('GPU')
+
+    Note: for checking on a (Linux) computer with NVIDIA GPUs,
+    whether they are really used during training, enter:
+
+        watch -n1.0 nvidia-smi
+
+    """
+    # TF 2.1
+    # list_gpus_available = tf.config.list_physical_devices('GPU')
+
+    # TF 2.0
+    list_gpus_available = tf.config.experimental.list_physical_devices('GPU')
     print("The following GPUs are available: {0}".format(list_gpus_available) )    
     print("Nr of GPUs available: {0}".format(len(list_gpus_available)) )
 
