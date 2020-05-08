@@ -639,6 +639,7 @@ def train_cnn_complete(your_cnn,
     print("-----------------------------------------------")
     
     time_start_training = datetime.now()
+    print("train_cnn_complete: training start time is {0}".format(time_start_training))
     
     # 1. reset start order of training samples
     your_train_ds.reset_original_order()
@@ -675,6 +676,8 @@ def train_cnn_complete(your_cnn,
     # 7. train an epoch in each loop
     continue_training = True
     while continue_training:
+
+        time_start_epoch = datetime.now()
         
         # 7.1
         # shuffle the training data for the next
@@ -690,7 +693,7 @@ def train_cnn_complete(your_cnn,
         train_cnn_one_epoch(your_cnn, your_train_ds, show_progress=True)
         print("********************************************************")
         print("\n")
-        
+
         # 7.3
         # compute classification rate on
         # training and testing data
@@ -729,8 +732,13 @@ def train_cnn_complete(your_cnn,
         if stop_classification_rate_train != None:
             if cl_rate_train >= stop_classification_rate_train:
                 continue_training = False
-                
-                
+
+        time_end_epoch = datetime.now()
+        time_delta_epoch = time_end_epoch - time_start_epoch
+        print("train_cnn_complete: time needed for one epoch training "
+              "and testing: {0}".format(time_delta_epoch))
+
+
     time_end_training = datetime.now()
     time_delta_training = time_end_training - time_start_training
     print("\n\n")
@@ -739,7 +747,8 @@ def train_cnn_complete(your_cnn,
           "time needed for training the complete model: {0}"
            .format(time_delta_training))    
     print("-----------------------------------------------")
-    
+
+    print("train_cnn_complete: training end time is {0}".format(time_end_training))
     
     # 8. return data about the training history
     return history
