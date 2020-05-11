@@ -557,7 +557,6 @@ def gpu_check():
 # the same or different start weights
 # -------------------------------------------------    
     
-import random
 
 def initialize_pseudo_random_number_generators(seed_value):
     """
@@ -567,9 +566,14 @@ def initialize_pseudo_random_number_generators(seed_value):
     used by TensorFlow and Keras for
     initializing the weights
     """
-    
-    from numpy.random import seed
-    seed( seed_value )
+
+    import random
+    random.seed(seed_value)
+
+    import numpy as np
+    np.random.seed(seed_value)
+
+    import tensorflow as tf
     tf.random.set_seed( seed_value )
     
  

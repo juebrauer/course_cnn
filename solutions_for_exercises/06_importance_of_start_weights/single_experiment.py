@@ -8,6 +8,10 @@ print("Here are all command line arguments: {0}".format( sys.argv ) )
 rnd_seed_value = int(sys.argv[1])
 print("I will now conduct experiment with random seed: {0}".format( rnd_seed_value ) )
 
+#gpu_nr = int(sys.argv[2])
+#print("Model will be trained on GPU #{0}".format(gpu_nr))
+#device_name = "/gpu:{0}".format(gpu_nr)
+
 
 # 2. check whether we have GPUs on this system available for CNN training
 from cnn_toolbox import gpu_check
@@ -49,6 +53,8 @@ from cnn_toolbox import initialize_pseudo_random_number_generators,\
 initialize_pseudo_random_number_generators( rnd_seed_value )
 
 # 4.2 create the CNN
+import tensorflow as tf
+#with tf.device(device_name):
 model = create_cnn_model(model_name = "same_nr_filters",
                          input_shape = img_shape,
                          nr_outputs = ds_train.nr_classes)
@@ -60,10 +66,11 @@ print("Here are filter 0 weights:")
 print(filter_weights[:,:,:,0])
 
 # 4.4 train the CNN completely
+#with tf.device(device_name):
 history = train_cnn_complete(model,
                              ds_train,
                              ds_test,
-                             stop_epochnr=100)
+                             stop_epochnr=50)
 
 # 4.5 save training history for further later analysis
 output_folder = "saved_model_histories"
