@@ -33,7 +33,8 @@ class image_dataset:
                  root_folder,
                  img_size,
                  inputs_are_for_VGG16=False,
-                 dev_mode=False):
+                 dev_mode=False,
+                 nr_samples_per_class=-1):
         """
         Generate a Python list <all_dataset_items>
         of available images
@@ -54,6 +55,8 @@ class image_dataset:
         
         self.mini_batch_size = 128
 
+        self.nr_samples_per_class = nr_samples_per_class
+
         print("Under root folder\n\t{0}\n"
               "I have found the following {1} subfolders/classes:\n"
               .format(root_folder, self.nr_classes))
@@ -61,6 +64,7 @@ class image_dataset:
         
         
         # For each subfolder ...
+        total_nr_images_that_we_could_use = 0
         for class_id, class_name in enumerate(self.class_names):
             
             subfolder_name = root_folder + "/" + class_name + "/"
@@ -71,6 +75,8 @@ class image_dataset:
             
             print("{} files in subfolder {}"
                   .format(len(filenames), subfolder_name) )
+
+            total_nr_images_that_we_could_use += len(filenames)
             
             # For each image filename in current subfolder ...
             example_imgs_for_current_class = 0
@@ -87,18 +93,22 @@ class image_dataset:
                 
                 example_imgs_for_current_class += 1
                 
-                # in developer mode, we store only
-                # 5 images for each class,
-                # this lets you quickly test
-                # all following processing steps
-                # using a very lightweight dataset
-                if dev_mode and example_imgs_for_current_class == 5:
+                # do only store
+                # <nr_train_samples_per_class>
+                # example images per class?
+                if nr_samples_per_class != -1 and\
+                   example_imgs_for_current_class >= nr_samples_per_class:
+                    # we have collected enough training samples
                     break
+
+            print("For class {0} I have {1} sample images in the list."
+                  .format(class_name, example_imgs_for_current_class))
                 
         
         self.nr_images = len(self.all_dataset_items)
-        print("In total there are {} images"
-              .format(self.nr_images))
+        print("In total there are {0} images that we could use."
+              .format(total_nr_images_that_we_could_use))
+        print("We will use {0} of them.".format(self.nr_images))
         
         print("\nHere are the first 3 entries in the list:")
         for i,entry in enumerate(self.all_dataset_items[:3]):
@@ -305,7 +315,7 @@ def create_cnn_model(nr_outputs,
 
     model = models.Sequential()
     
-    if model_name == "inc_nr_filters":
+    if model_name == "inc-nr-filters":
 
         #1+2
         model.add(layers.Conv2D(32, (3, 3), activation='relu', input_shape=input_shape))
@@ -331,7 +341,7 @@ def create_cnn_model(nr_outputs,
         model.add(layers.Conv2D(1024, (3, 3), activation='relu'))
         model.add(layers.MaxPooling2D((2, 2)))        
         
-    elif model_name == "same_nr_filters":
+    elif model_name == "same-nr-filters":
         
         #1+2
         model.add(layers.Conv2D(256, (3, 3), activation='relu', input_shape=input_shape))
@@ -627,10 +637,14 @@ import random
 def train_cnn_complete(your_cnn,
                        your_train_ds,
                        your_test_ds,
+                       check_for_progress_min_cl_rate,
                        same_shuffling = False,
                        stop_epochnr = None,
                        stop_classification_rate_train = None,
-                       show_progress=True):
+                       show_progress=True,
+                       stop_training_if_no_progress = True,
+                       check_for_progress_epoch_nr = 5
+                       ):
     """
     Given the specified model <your_cnn> and
     the specified dataset <your_train_ds>
@@ -679,6 +693,7 @@ def train_cnn_complete(your_cnn,
     
     # 7. train an epoch in each loop
     continue_training = True
+    training_aborted_due_to_no_progress = False
     while continue_training:
 
         time_start_epoch = datetime.now()
@@ -735,12 +750,32 @@ def train_cnn_complete(your_cnn,
         # classification threshold for training data reached?
         if stop_classification_rate_train != None:
             if cl_rate_train >= stop_classification_rate_train:
+                training_aborted_due_to_no_progress = True
                 continue_training = False
 
         time_end_epoch = datetime.now()
         time_delta_epoch = time_end_epoch - time_start_epoch
         print("train_cnn_complete: time needed for one epoch training "
               "and testing: {0}".format(time_delta_epoch))
+
+        # make sure we invest not too much time in
+        # training models, when there is no progress
+        if stop_training_if_no_progress:
+            # is it time to check whether there is progress?
+            if nr_epochs_trained >= check_for_progress_epoch_nr:
+                # yes, it is time to check whether there is enough
+                # progress!
+
+                # is there enough progress?
+                if cl_rate_train < check_for_progress_min_cl_rate:
+                    # training seems not to work!
+                    # --> stop training now to be able to proceed
+                    #     with a new model
+                    print("train_cnn_complete: Aborting training since there seems"
+                          "to be no progress. Even after {0} epochs, the"
+                          "classification rate on the training data is still: {1}"
+                          .format(nr_epochs_trained, cl_rate_train))
+                    continue_training = False
 
 
     time_end_training = datetime.now()
@@ -753,8 +788,12 @@ def train_cnn_complete(your_cnn,
     print("-----------------------------------------------")
 
     print("train_cnn_complete: training end time is {0}".format(time_end_training))
+
+    # 8. save information in history dictionary,
+    #    whether we aborted the training or not
+    history["training_aborted_due_to_no_progress"] = training_aborted_due_to_no_progress
     
-    # 8. return data about the training history
+    # 9. return data about the training history
     return history
     
     
