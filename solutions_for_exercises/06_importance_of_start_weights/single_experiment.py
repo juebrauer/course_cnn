@@ -24,16 +24,15 @@ img_shape = (224,224,3)
 
 from cnn_toolbox import image_dataset
 
-#root_folder = "/media/juebrauer/Seagate Expansion Drive/datasets/01_images/18_imagenette2/320px/"
-root_folder = "/home/juebrauer/data_jb/02_datasets/imagenette2/320px/"
+root_folder = "/home/juebrauer/data_jb/datasets/imagewoof/"
 root_folder_train = root_folder + "train/"
 root_folder_test  = root_folder + "val/"
 
-ds_train = image_dataset(name="imagenette2-train",
+ds_train = image_dataset(name="imagewoof-train",
                          root_folder=root_folder_train,
                          img_size=(img_shape[0],img_shape[1]))
 
-ds_test = image_dataset(name="imagenette2-test",
+ds_test = image_dataset(name="imagewoof-test",
                         root_folder=root_folder_test,
                         img_size=(img_shape[0],img_shape[1]))
 
