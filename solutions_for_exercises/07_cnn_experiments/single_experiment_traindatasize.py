@@ -35,11 +35,11 @@ img_shape = (224,224,3)
 from cnn_toolbox import image_dataset
 
 if dataset_name=="imagenette":
-    root_folder = "/media/juebrauer/Seagate Expansion Drive/datasets/01_images/18_imagenette2/320px/"
-    #root_folder = "/home/juebrauer/data_jb/datasets/imagenette/"
+    #root_folder = "/media/juebrauer/Seagate Expansion Drive/datasets/01_images/18_imagenette2/320px/"
+    root_folder = "/home/juebrauer/data_jb/datasets/imagenette2/320px/"
 elif dataset_name=="imagewoof":
-    root_folder = "/media/juebrauer/Seagate Expansion Drive/datasets/01_images/19_imagewoof/320px/"
-    #root_folder = "/home/juebrauer/data_jb/datasets/imagewoof/"
+    #root_folder = "/media/juebrauer/Seagate Expansion Drive/datasets/01_images/19_imagewoof/320px/"
+    root_folder = "/home/juebrauer/data_jb/datasets/imagewoof/320px/"
 
 root_folder_train = root_folder + "train/"
 root_folder_test = root_folder + "val/"
