@@ -1,0 +1,1928 @@
+['/home/juebrauer/data_jb/course_cnn/solutions_for_exercises/07_cnn_experiments', '/home/juebrauer/anaconda3/envs/tf_gpu/lib/python37.zip', '/home/juebrauer/anaconda3/envs/tf_gpu/lib/python3.7', '/home/juebrauer/anaconda3/envs/tf_gpu/lib/python3.7/lib-dynload', '/home/juebrauer/anaconda3/envs/tf_gpu/lib/python3.7/site-packages', '../../cnn_toolbox']
+Here are all command line arguments: ['single_experiment_traindatasize.py', '032', 'inc-nr-filters', 'imagewoof', '800']
+Welcome to image_dataset class v1.0 by Juergen Brauer
+The following GPUs are available: [PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU'), PhysicalDevice(name='/physical_device:GPU:1', device_type='GPU'), PhysicalDevice(name='/physical_device:GPU:2', device_type='GPU'), PhysicalDevice(name='/physical_device:GPU:3', device_type='GPU')]
+Nr of GPUs available: 4
+Under root folder
+	/home/juebrauer/data_jb/datasets/imagewoof/320px/train/
+I have found the following 10 subfolders/classes:
+
+['Beagle', 'Old_English_sheepdog', 'Dingo', 'Border_terrier', 'English_foxhound', 'Samoyed', 'Rhodesian_ridgeback', 'Australian_terrier', 'Shih-Tzu', 'Golden_retriever']
+932 files in subfolder /home/juebrauer/data_jb/datasets/imagewoof/320px/train//Beagle/
+For class Beagle I have 800 sample images in the list.
+928 files in subfolder /home/juebrauer/data_jb/datasets/imagewoof/320px/train//Old_English_sheepdog/
+For class Old_English_sheepdog I have 800 sample images in the list.
+940 files in subfolder /home/juebrauer/data_jb/datasets/imagewoof/320px/train//Dingo/
+For class Dingo I have 800 sample images in the list.
+949 files in subfolder /home/juebrauer/data_jb/datasets/imagewoof/320px/train//Border_terrier/
+For class Border_terrier I have 800 sample images in the list.
+580 files in subfolder /home/juebrauer/data_jb/datasets/imagewoof/320px/train//English_foxhound/
+For class English_foxhound I have 580 sample images in the list.
+921 files in subfolder /home/juebrauer/data_jb/datasets/imagewoof/320px/train//Samoyed/
+For class Samoyed I have 800 sample images in the list.
+942 files in subfolder /home/juebrauer/data_jb/datasets/imagewoof/320px/train//Rhodesian_ridgeback/
+For class Rhodesian_ridgeback I have 800 sample images in the list.
+943 files in subfolder /home/juebrauer/data_jb/datasets/imagewoof/320px/train//Australian_terrier/
+For class Australian_terrier I have 800 sample images in the list.
+941 files in subfolder /home/juebrauer/data_jb/datasets/imagewoof/320px/train//Shih-Tzu/
+For class Shih-Tzu I have 800 sample images in the list.
+949 files in subfolder /home/juebrauer/data_jb/datasets/imagewoof/320px/train//Golden_retriever/
+For class Golden_retriever I have 800 sample images in the list.
+In total there are 9025 images that we could use.
+We will use 7780 of them.
+
+Here are the first 3 entries in the list:
+Entry #0:
+	/home/juebrauer/data_jb/datasets/imagewoof/320px/train//Beagle/n02088364_4745.JPEG
+	0
+	Beagle
+	[1. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Entry #1:
+	/home/juebrauer/data_jb/datasets/imagewoof/320px/train//Beagle/n02088364_203.JPEG
+	0
+	Beagle
+	[1. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Entry #2:
+	/home/juebrauer/data_jb/datasets/imagewoof/320px/train//Beagle/n02088364_2807.JPEG
+	0
+	Beagle
+	[1. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Under root folder
+	/home/juebrauer/data_jb/datasets/imagewoof/320px/val/
+I have found the following 10 subfolders/classes:
+
+['Beagle', 'Old_English_sheepdog', 'Dingo', 'Border_terrier', 'English_foxhound', 'Samoyed', 'Rhodesian_ridgeback', 'Australian_terrier', 'Shih-Tzu', 'Golden_retriever']
+418 files in subfolder /home/juebrauer/data_jb/datasets/imagewoof/320px/val//Beagle/
+For class Beagle I have 418 sample images in the list.
+422 files in subfolder /home/juebrauer/data_jb/datasets/imagewoof/320px/val//Old_English_sheepdog/
+For class Old_English_sheepdog I have 422 sample images in the list.
+410 files in subfolder /home/juebrauer/data_jb/datasets/imagewoof/320px/val//Dingo/
+For class Dingo I have 410 sample images in the list.
+401 files in subfolder /home/juebrauer/data_jb/datasets/imagewoof/320px/val//Border_terrier/
+For class Border_terrier I have 401 sample images in the list.
+224 files in subfolder /home/juebrauer/data_jb/datasets/imagewoof/320px/val//English_foxhound/
+For class English_foxhound I have 224 sample images in the list.
+429 files in subfolder /home/juebrauer/data_jb/datasets/imagewoof/320px/val//Samoyed/
+For class Samoyed I have 429 sample images in the list.
+408 files in subfolder /home/juebrauer/data_jb/datasets/imagewoof/320px/val//Rhodesian_ridgeback/
+For class Rhodesian_ridgeback I have 408 sample images in the list.
+407 files in subfolder /home/juebrauer/data_jb/datasets/imagewoof/320px/val//Australian_terrier/
+For class Australian_terrier I have 407 sample images in the list.
+409 files in subfolder /home/juebrauer/data_jb/datasets/imagewoof/320px/val//Shih-Tzu/
+For class Shih-Tzu I have 409 sample images in the list.
+401 files in subfolder /home/juebrauer/data_jb/datasets/imagewoof/320px/val//Golden_retriever/
+For class Golden_retriever I have 401 sample images in the list.
+In total there are 3929 images that we could use.
+We will use 3929 of them.
+
+Here are the first 3 entries in the list:
+Entry #0:
+	/home/juebrauer/data_jb/datasets/imagewoof/320px/val//Beagle/n02088364_11040.JPEG
+	0
+	Beagle
+	[1. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Entry #1:
+	/home/juebrauer/data_jb/datasets/imagewoof/320px/val//Beagle/n02088364_3432.JPEG
+	0
+	Beagle
+	[1. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Entry #2:
+	/home/juebrauer/data_jb/datasets/imagewoof/320px/val//Beagle/n02088364_3602.JPEG
+	0
+	Beagle
+	[1. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d (Conv2D)              (None, 222, 222, 32)      896       
+_________________________________________________________________
+max_pooling2d (MaxPooling2D) (None, 111, 111, 32)      0         
+_________________________________________________________________
+conv2d_1 (Conv2D)            (None, 109, 109, 64)      18496     
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 54, 54, 64)        0         
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 52, 52, 128)       73856     
+_________________________________________________________________
+max_pooling2d_2 (MaxPooling2 (None, 26, 26, 128)       0         
+_________________________________________________________________
+conv2d_3 (Conv2D)            (None, 24, 24, 256)       295168    
+_________________________________________________________________
+max_pooling2d_3 (MaxPooling2 (None, 12, 12, 256)       0         
+_________________________________________________________________
+conv2d_4 (Conv2D)            (None, 10, 10, 512)       1180160   
+_________________________________________________________________
+max_pooling2d_4 (MaxPooling2 (None, 5, 5, 512)         0         
+_________________________________________________________________
+conv2d_5 (Conv2D)            (None, 3, 3, 1024)        4719616   
+_________________________________________________________________
+max_pooling2d_5 (MaxPooling2 (None, 1, 1, 1024)        0         
+_________________________________________________________________
+flatten (Flatten)            (None, 1024)              0         
+_________________________________________________________________
+fc1 (Dense)                  (None, 2048)              2099200   
+_________________________________________________________________
+output (Dense)               (None, 10)                20490     
+=================================================================
+Total params: 8,407,882
+Trainable params: 8,407,882
+Non-trainable params: 0
+_________________________________________________________________
+filter_weights has shape: (3, 3, 3, 32)
+bias_weights has shape: (32,)
+filter_weights has type: <class 'numpy.ndarray'>
+bias_weights has type: <class 'numpy.ndarray'>
+Here are filter 0 weights:
+[[[-0.06359574 -0.01426506 -0.09463581]
+  [ 0.0423381   0.10240459  0.00302225]
+  [-0.01718168 -0.09173805  0.07090595]]
+
+ [[ 0.05090097  0.0665345   0.02208322]
+  [ 0.11366864  0.07072251  0.03579295]
+  [ 0.09357831  0.08864637 -0.1328624 ]]
+
+ [[ 0.100097    0.11151968  0.01775518]
+  [ 0.12375204 -0.0534863   0.0610652 ]
+  [ 0.10143028  0.06903397  0.03822459]]]
+
+
+
+-----------------------------------------------
+train_cnn_complete: starting to train the model
+-----------------------------------------------
+train_cnn_complete: training start time is 2020-05-17 03:53:14.293583
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 796 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.10
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 414 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.11
+
+
+********************************************************
+train_cnn_complete: starting training epoch 1
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:47.519091
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 1510 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.19
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 775 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.20
+train_cnn_complete: training epoch 1 finished.
+train_cnn_complete: classification rates: train=0.19, test=0.20
+train_cnn_complete: time needed for one epoch training and testing: 0:01:50.993188
+
+
+********************************************************
+train_cnn_complete: starting training epoch 2
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.860449
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 1888 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.24
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 928 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.24
+train_cnn_complete: training epoch 2 finished.
+train_cnn_complete: classification rates: train=0.24, test=0.24
+train_cnn_complete: time needed for one epoch training and testing: 0:01:48.716872
+
+
+********************************************************
+train_cnn_complete: starting training epoch 3
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:46.356161
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 2258 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.29
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1129 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.29
+train_cnn_complete: training epoch 3 finished.
+train_cnn_complete: classification rates: train=0.29, test=0.29
+train_cnn_complete: time needed for one epoch training and testing: 0:01:49.226889
+
+
+********************************************************
+train_cnn_complete: starting training epoch 4
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:46.614565
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 2446 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.31
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1173 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.30
+train_cnn_complete: training epoch 4 finished.
+train_cnn_complete: classification rates: train=0.31, test=0.30
+train_cnn_complete: time needed for one epoch training and testing: 0:01:49.339636
+
+
+********************************************************
+train_cnn_complete: starting training epoch 5
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:46.098606
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 3020 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.39
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1408 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.36
+train_cnn_complete: training epoch 5 finished.
+train_cnn_complete: classification rates: train=0.39, test=0.36
+train_cnn_complete: time needed for one epoch training and testing: 0:01:48.904115
+
+
+********************************************************
+train_cnn_complete: starting training epoch 6
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.523805
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 3139 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.40
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1394 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.35
+train_cnn_complete: training epoch 6 finished.
+train_cnn_complete: classification rates: train=0.40, test=0.35
+train_cnn_complete: time needed for one epoch training and testing: 0:01:48.377860
+
+
+********************************************************
+train_cnn_complete: starting training epoch 7
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:46.129074
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 3564 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.46
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1474 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.38
+train_cnn_complete: training epoch 7 finished.
+train_cnn_complete: classification rates: train=0.46, test=0.38
+train_cnn_complete: time needed for one epoch training and testing: 0:01:48.323016
+
+
+********************************************************
+train_cnn_complete: starting training epoch 8
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.161365
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 4049 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.52
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1547 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.39
+train_cnn_complete: training epoch 8 finished.
+train_cnn_complete: classification rates: train=0.52, test=0.39
+train_cnn_complete: time needed for one epoch training and testing: 0:01:48.891906
+
+
+********************************************************
+train_cnn_complete: starting training epoch 9
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.449509
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 4587 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.59
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1624 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.41
+train_cnn_complete: training epoch 9 finished.
+train_cnn_complete: classification rates: train=0.59, test=0.41
+train_cnn_complete: time needed for one epoch training and testing: 0:01:47.238724
+
+
+********************************************************
+train_cnn_complete: starting training epoch 10
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.221507
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 4880 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.63
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1549 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.39
+train_cnn_complete: training epoch 10 finished.
+train_cnn_complete: classification rates: train=0.63, test=0.39
+train_cnn_complete: time needed for one epoch training and testing: 0:01:48.454418
+
+
+********************************************************
+train_cnn_complete: starting training epoch 11
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.662525
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 5484 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.70
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1586 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.40
+train_cnn_complete: training epoch 11 finished.
+train_cnn_complete: classification rates: train=0.70, test=0.40
+train_cnn_complete: time needed for one epoch training and testing: 0:01:47.560607
+
+
+********************************************************
+train_cnn_complete: starting training epoch 12
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.070814
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 6475 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.83
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1606 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.41
+train_cnn_complete: training epoch 12 finished.
+train_cnn_complete: classification rates: train=0.83, test=0.41
+train_cnn_complete: time needed for one epoch training and testing: 0:01:47.142135
+
+
+********************************************************
+train_cnn_complete: starting training epoch 13
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:46.378025
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 6586 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.85
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1577 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.40
+train_cnn_complete: training epoch 13 finished.
+train_cnn_complete: classification rates: train=0.85, test=0.40
+train_cnn_complete: time needed for one epoch training and testing: 0:01:49.543832
+
+
+********************************************************
+train_cnn_complete: starting training epoch 14
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.316238
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 6789 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.87
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1502 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.38
+train_cnn_complete: training epoch 14 finished.
+train_cnn_complete: classification rates: train=0.87, test=0.38
+train_cnn_complete: time needed for one epoch training and testing: 0:01:47.435827
+
+
+********************************************************
+train_cnn_complete: starting training epoch 15
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:44.806247
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7247 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.93
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1559 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.40
+train_cnn_complete: training epoch 15 finished.
+train_cnn_complete: classification rates: train=0.93, test=0.40
+train_cnn_complete: time needed for one epoch training and testing: 0:01:46.460091
+
+
+********************************************************
+train_cnn_complete: starting training epoch 16
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:44.744838
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7374 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.95
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1521 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.39
+train_cnn_complete: training epoch 16 finished.
+train_cnn_complete: classification rates: train=0.95, test=0.39
+train_cnn_complete: time needed for one epoch training and testing: 0:01:48.639542
+
+
+********************************************************
+train_cnn_complete: starting training epoch 17
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.388788
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7351 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.94
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1580 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.40
+train_cnn_complete: training epoch 17 finished.
+train_cnn_complete: classification rates: train=0.94, test=0.40
+train_cnn_complete: time needed for one epoch training and testing: 0:01:47.220731
+
+
+********************************************************
+train_cnn_complete: starting training epoch 18
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:44.918044
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7445 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.96
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1497 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.38
+train_cnn_complete: training epoch 18 finished.
+train_cnn_complete: classification rates: train=0.96, test=0.38
+train_cnn_complete: time needed for one epoch training and testing: 0:01:46.821371
+
+
+********************************************************
+train_cnn_complete: starting training epoch 19
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:44.827804
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7442 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.96
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1512 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.38
+train_cnn_complete: training epoch 19 finished.
+train_cnn_complete: classification rates: train=0.96, test=0.38
+train_cnn_complete: time needed for one epoch training and testing: 0:01:46.547137
+
+
+********************************************************
+train_cnn_complete: starting training epoch 20
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.064870
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7409 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.95
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1500 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.38
+train_cnn_complete: training epoch 20 finished.
+train_cnn_complete: classification rates: train=0.95, test=0.38
+train_cnn_complete: time needed for one epoch training and testing: 0:01:49.400485
+
+
+********************************************************
+train_cnn_complete: starting training epoch 21
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.299091
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7612 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.98
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1538 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.39
+train_cnn_complete: training epoch 21 finished.
+train_cnn_complete: classification rates: train=0.98, test=0.39
+train_cnn_complete: time needed for one epoch training and testing: 0:01:47.474755
+
+
+********************************************************
+train_cnn_complete: starting training epoch 22
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.328847
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7367 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.95
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1465 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.37
+train_cnn_complete: training epoch 22 finished.
+train_cnn_complete: classification rates: train=0.95, test=0.37
+train_cnn_complete: time needed for one epoch training and testing: 0:01:47.022088
+
+
+********************************************************
+train_cnn_complete: starting training epoch 23
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.135511
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 6657 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.86
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1412 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.36
+train_cnn_complete: training epoch 23 finished.
+train_cnn_complete: classification rates: train=0.86, test=0.36
+train_cnn_complete: time needed for one epoch training and testing: 0:01:46.993879
+
+
+********************************************************
+train_cnn_complete: starting training epoch 24
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.065463
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7664 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.99
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1587 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.40
+train_cnn_complete: training epoch 24 finished.
+train_cnn_complete: classification rates: train=0.99, test=0.40
+train_cnn_complete: time needed for one epoch training and testing: 0:01:47.139753
+
+
+********************************************************
+train_cnn_complete: starting training epoch 25
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.176500
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7502 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.96
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1491 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.38
+train_cnn_complete: training epoch 25 finished.
+train_cnn_complete: classification rates: train=0.96, test=0.38
+train_cnn_complete: time needed for one epoch training and testing: 0:01:49.880100
+
+
+********************************************************
+train_cnn_complete: starting training epoch 26
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.422722
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7723 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.99
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1517 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.39
+train_cnn_complete: training epoch 26 finished.
+train_cnn_complete: classification rates: train=0.99, test=0.39
+train_cnn_complete: time needed for one epoch training and testing: 0:01:47.617737
+
+
+********************************************************
+train_cnn_complete: starting training epoch 27
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.042856
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7556 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.97
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1520 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.39
+train_cnn_complete: training epoch 27 finished.
+train_cnn_complete: classification rates: train=0.97, test=0.39
+train_cnn_complete: time needed for one epoch training and testing: 0:01:46.926064
+
+
+********************************************************
+train_cnn_complete: starting training epoch 28
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.126179
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7479 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.96
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1488 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.38
+train_cnn_complete: training epoch 28 finished.
+train_cnn_complete: classification rates: train=0.96, test=0.38
+train_cnn_complete: time needed for one epoch training and testing: 0:01:46.914481
+
+
+********************************************************
+train_cnn_complete: starting training epoch 29
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.127470
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7661 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.98
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1509 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.38
+train_cnn_complete: training epoch 29 finished.
+train_cnn_complete: classification rates: train=0.98, test=0.38
+train_cnn_complete: time needed for one epoch training and testing: 0:01:46.909949
+
+
+********************************************************
+train_cnn_complete: starting training epoch 30
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.160412
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7571 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.97
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1499 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.38
+train_cnn_complete: training epoch 30 finished.
+train_cnn_complete: classification rates: train=0.97, test=0.38
+train_cnn_complete: time needed for one epoch training and testing: 0:01:47.069580
+
+
+********************************************************
+train_cnn_complete: starting training epoch 31
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.036139
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7626 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.98
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1516 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.39
+train_cnn_complete: training epoch 31 finished.
+train_cnn_complete: classification rates: train=0.98, test=0.39
+train_cnn_complete: time needed for one epoch training and testing: 0:01:50.155841
+
+
+********************************************************
+train_cnn_complete: starting training epoch 32
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.728478
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7570 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.97
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1549 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.39
+train_cnn_complete: training epoch 32 finished.
+train_cnn_complete: classification rates: train=0.97, test=0.39
+train_cnn_complete: time needed for one epoch training and testing: 0:01:48.196750
+
+
+********************************************************
+train_cnn_complete: starting training epoch 33
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.369239
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7662 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.98
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1487 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.38
+train_cnn_complete: training epoch 33 finished.
+train_cnn_complete: classification rates: train=0.98, test=0.38
+train_cnn_complete: time needed for one epoch training and testing: 0:01:47.647768
+
+
+********************************************************
+train_cnn_complete: starting training epoch 34
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.309698
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7692 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.99
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1482 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.38
+train_cnn_complete: training epoch 34 finished.
+train_cnn_complete: classification rates: train=0.99, test=0.38
+train_cnn_complete: time needed for one epoch training and testing: 0:01:47.471648
+
+
+********************************************************
+train_cnn_complete: starting training epoch 35
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.212219
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7628 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.98
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1442 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.37
+train_cnn_complete: training epoch 35 finished.
+train_cnn_complete: classification rates: train=0.98, test=0.37
+train_cnn_complete: time needed for one epoch training and testing: 0:01:46.995239
+
+
+********************************************************
+train_cnn_complete: starting training epoch 36
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.416837
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7605 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.98
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1507 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.38
+train_cnn_complete: training epoch 36 finished.
+train_cnn_complete: classification rates: train=0.98, test=0.38
+train_cnn_complete: time needed for one epoch training and testing: 0:01:47.504416
+
+
+********************************************************
+train_cnn_complete: starting training epoch 37
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.274058
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7701 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.99
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1498 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.38
+train_cnn_complete: training epoch 37 finished.
+train_cnn_complete: classification rates: train=0.99, test=0.38
+train_cnn_complete: time needed for one epoch training and testing: 0:01:47.431491
+
+
+********************************************************
+train_cnn_complete: starting training epoch 38
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.109756
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7617 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.98
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1496 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.38
+train_cnn_complete: training epoch 38 finished.
+train_cnn_complete: classification rates: train=0.98, test=0.38
+train_cnn_complete: time needed for one epoch training and testing: 0:01:49.639561
+
+
+********************************************************
+train_cnn_complete: starting training epoch 39
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:46.484464
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7677 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.99
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1477 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.38
+train_cnn_complete: training epoch 39 finished.
+train_cnn_complete: classification rates: train=0.99, test=0.38
+train_cnn_complete: time needed for one epoch training and testing: 0:01:49.394853
+
+
+********************************************************
+train_cnn_complete: starting training epoch 40
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.499817
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7606 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.98
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1515 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.39
+train_cnn_complete: training epoch 40 finished.
+train_cnn_complete: classification rates: train=0.98, test=0.39
+train_cnn_complete: time needed for one epoch training and testing: 0:01:47.733626
+
+
+********************************************************
+train_cnn_complete: starting training epoch 41
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.389525
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7514 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.97
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1464 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.37
+train_cnn_complete: training epoch 41 finished.
+train_cnn_complete: classification rates: train=0.97, test=0.37
+train_cnn_complete: time needed for one epoch training and testing: 0:01:47.249237
+
+
+********************************************************
+train_cnn_complete: starting training epoch 42
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.379886
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7652 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.98
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1418 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.36
+train_cnn_complete: training epoch 42 finished.
+train_cnn_complete: classification rates: train=0.98, test=0.36
+train_cnn_complete: time needed for one epoch training and testing: 0:01:47.460071
+
+
+********************************************************
+train_cnn_complete: starting training epoch 43
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.532942
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7599 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.98
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1472 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.37
+train_cnn_complete: training epoch 43 finished.
+train_cnn_complete: classification rates: train=0.98, test=0.37
+train_cnn_complete: time needed for one epoch training and testing: 0:01:47.402414
+
+
+********************************************************
+train_cnn_complete: starting training epoch 44
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.167126
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7324 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.94
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1401 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.36
+train_cnn_complete: training epoch 44 finished.
+train_cnn_complete: classification rates: train=0.94, test=0.36
+train_cnn_complete: time needed for one epoch training and testing: 0:01:47.040156
+
+
+********************************************************
+train_cnn_complete: starting training epoch 45
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.236072
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7699 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.99
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1494 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.38
+train_cnn_complete: training epoch 45 finished.
+train_cnn_complete: classification rates: train=0.99, test=0.38
+train_cnn_complete: time needed for one epoch training and testing: 0:01:47.062543
+
+
+********************************************************
+train_cnn_complete: starting training epoch 46
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.610635
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7617 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.98
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1473 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.37
+train_cnn_complete: training epoch 46 finished.
+train_cnn_complete: classification rates: train=0.98, test=0.37
+train_cnn_complete: time needed for one epoch training and testing: 0:01:47.613155
+
+
+********************************************************
+train_cnn_complete: starting training epoch 47
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.543996
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7507 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.96
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1482 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.38
+train_cnn_complete: training epoch 47 finished.
+train_cnn_complete: classification rates: train=0.96, test=0.38
+train_cnn_complete: time needed for one epoch training and testing: 0:01:47.709583
+
+
+********************************************************
+train_cnn_complete: starting training epoch 48
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:49.637093
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7618 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.98
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1484 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.38
+train_cnn_complete: training epoch 48 finished.
+train_cnn_complete: classification rates: train=0.98, test=0.38
+train_cnn_complete: time needed for one epoch training and testing: 0:01:52.862149
+
+
+********************************************************
+train_cnn_complete: starting training epoch 49
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:46.003934
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7386 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.95
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1466 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.37
+train_cnn_complete: training epoch 49 finished.
+train_cnn_complete: classification rates: train=0.95, test=0.37
+train_cnn_complete: time needed for one epoch training and testing: 0:01:48.381485
+
+
+********************************************************
+train_cnn_complete: starting training epoch 50
+train_cnn_one_epoch: finished training batch 1 of 61. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 61. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 61. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 61. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 61. Trained images so far: 5248
+train_cnn_one_epoch: finished training batch 51 of 61. Trained images so far: 6528
+train_cnn_one_epoch: finished training batch 61 of 61. Trained images so far: 7780
+train_cnn_one_epoch: time needed for training this epoch: 0:00:45.459915
+********************************************************
+
+
+test_cnn: testing model on dataset: imagewoof-train
+test_cnn: there are 7780 testing images. So for a batch size of 128 we have to test 61 batches.
+test_cnn: tested mini batch 1 of 61. Tested images so far: 128
+test_cnn: tested mini batch 11 of 61. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 61. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 61. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 61. Tested images so far: 5248
+test_cnn: tested mini batch 51 of 61. Tested images so far: 6528
+test_cnn: tested mini batch 61 of 61. Tested images so far: 7780
+test_cnn: correctly classified: 7368 of 7780 images of dataset 'imagewoof-train': --> classification rate: 0.95
+test_cnn: testing model on dataset: imagewoof-test
+test_cnn: there are 3929 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3929
+test_cnn: correctly classified: 1449 of 3929 images of dataset 'imagewoof-test': --> classification rate: 0.37
+train_cnn_complete: training epoch 50 finished.
+train_cnn_complete: classification rates: train=0.95, test=0.37
+train_cnn_complete: time needed for one epoch training and testing: 0:01:47.742196
+
+
+
+-----------------------------------------------
+train_cnn_complete: time needed for training the complete model: 1:31:07.495935
+-----------------------------------------------
+train_cnn_complete: training end time is 2020-05-17 05:24:21.789518

@@ -1,0 +1,1726 @@
+['/home/juebrauer/data_jb/course_cnn/solutions_for_exercises/07_cnn_experiments', '/home/juebrauer/anaconda3/envs/env_generic/lib/python37.zip', '/home/juebrauer/anaconda3/envs/env_generic/lib/python3.7', '/home/juebrauer/anaconda3/envs/env_generic/lib/python3.7/lib-dynload', '/home/juebrauer/anaconda3/envs/env_generic/lib/python3.7/site-packages', '../../cnn_toolbox']
+Here are all command line arguments: ['single_experiment_traindatasize.py', '054', 'same-nr-filters', 'imagenette', '600']
+Welcome to image_dataset class v1.0 by Juergen Brauer
+The following GPUs are available: [PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU'), PhysicalDevice(name='/physical_device:GPU:1', device_type='GPU'), PhysicalDevice(name='/physical_device:GPU:2', device_type='GPU'), PhysicalDevice(name='/physical_device:GPU:3', device_type='GPU')]
+Nr of GPUs available: 4
+Under root folder
+	/home/juebrauer/data_jb/datasets/imagenette2/320px/train/
+I have found the following 10 subfolders/classes:
+
+['gas_pump', 'chain_saw', 'fish_tench', 'french_horn', 'cassette_player', 'golf_ball', 'garbage_truck', 'parachute', 'church', 'dog_english_springer']
+931 files in subfolder /home/juebrauer/data_jb/datasets/imagenette2/320px/train//gas_pump/
+For class gas_pump I have 600 sample images in the list.
+858 files in subfolder /home/juebrauer/data_jb/datasets/imagenette2/320px/train//chain_saw/
+For class chain_saw I have 600 sample images in the list.
+963 files in subfolder /home/juebrauer/data_jb/datasets/imagenette2/320px/train//fish_tench/
+For class fish_tench I have 600 sample images in the list.
+956 files in subfolder /home/juebrauer/data_jb/datasets/imagenette2/320px/train//french_horn/
+For class french_horn I have 600 sample images in the list.
+993 files in subfolder /home/juebrauer/data_jb/datasets/imagenette2/320px/train//cassette_player/
+For class cassette_player I have 600 sample images in the list.
+951 files in subfolder /home/juebrauer/data_jb/datasets/imagenette2/320px/train//golf_ball/
+For class golf_ball I have 600 sample images in the list.
+961 files in subfolder /home/juebrauer/data_jb/datasets/imagenette2/320px/train//garbage_truck/
+For class garbage_truck I have 600 sample images in the list.
+960 files in subfolder /home/juebrauer/data_jb/datasets/imagenette2/320px/train//parachute/
+For class parachute I have 600 sample images in the list.
+941 files in subfolder /home/juebrauer/data_jb/datasets/imagenette2/320px/train//church/
+For class church I have 600 sample images in the list.
+955 files in subfolder /home/juebrauer/data_jb/datasets/imagenette2/320px/train//dog_english_springer/
+For class dog_english_springer I have 600 sample images in the list.
+In total there are 9469 images that we could use.
+We will use 6000 of them.
+
+Here are the first 3 entries in the list:
+Entry #0:
+	/home/juebrauer/data_jb/datasets/imagenette2/320px/train//gas_pump/n03425413_18487.JPEG
+	0
+	gas_pump
+	[1. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Entry #1:
+	/home/juebrauer/data_jb/datasets/imagenette2/320px/train//gas_pump/n03425413_14374.JPEG
+	0
+	gas_pump
+	[1. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Entry #2:
+	/home/juebrauer/data_jb/datasets/imagenette2/320px/train//gas_pump/n03425413_13206.JPEG
+	0
+	gas_pump
+	[1. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Under root folder
+	/home/juebrauer/data_jb/datasets/imagenette2/320px/val/
+I have found the following 10 subfolders/classes:
+
+['gas_pump', 'chain_saw', 'fish_tench', 'french_horn', 'cassette_player', 'golf_ball', 'garbage_truck', 'parachute', 'church', 'dog_english_springer']
+419 files in subfolder /home/juebrauer/data_jb/datasets/imagenette2/320px/val//gas_pump/
+For class gas_pump I have 419 sample images in the list.
+386 files in subfolder /home/juebrauer/data_jb/datasets/imagenette2/320px/val//chain_saw/
+For class chain_saw I have 386 sample images in the list.
+387 files in subfolder /home/juebrauer/data_jb/datasets/imagenette2/320px/val//fish_tench/
+For class fish_tench I have 387 sample images in the list.
+394 files in subfolder /home/juebrauer/data_jb/datasets/imagenette2/320px/val//french_horn/
+For class french_horn I have 394 sample images in the list.
+357 files in subfolder /home/juebrauer/data_jb/datasets/imagenette2/320px/val//cassette_player/
+For class cassette_player I have 357 sample images in the list.
+399 files in subfolder /home/juebrauer/data_jb/datasets/imagenette2/320px/val//golf_ball/
+For class golf_ball I have 399 sample images in the list.
+389 files in subfolder /home/juebrauer/data_jb/datasets/imagenette2/320px/val//garbage_truck/
+For class garbage_truck I have 389 sample images in the list.
+390 files in subfolder /home/juebrauer/data_jb/datasets/imagenette2/320px/val//parachute/
+For class parachute I have 390 sample images in the list.
+409 files in subfolder /home/juebrauer/data_jb/datasets/imagenette2/320px/val//church/
+For class church I have 409 sample images in the list.
+395 files in subfolder /home/juebrauer/data_jb/datasets/imagenette2/320px/val//dog_english_springer/
+For class dog_english_springer I have 395 sample images in the list.
+In total there are 3925 images that we could use.
+We will use 3925 of them.
+
+Here are the first 3 entries in the list:
+Entry #0:
+	/home/juebrauer/data_jb/datasets/imagenette2/320px/val//gas_pump/n03425413_14622.JPEG
+	0
+	gas_pump
+	[1. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Entry #1:
+	/home/juebrauer/data_jb/datasets/imagenette2/320px/val//gas_pump/n03425413_20262.JPEG
+	0
+	gas_pump
+	[1. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Entry #2:
+	/home/juebrauer/data_jb/datasets/imagenette2/320px/val//gas_pump/n03425413_14510.JPEG
+	0
+	gas_pump
+	[1. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d (Conv2D)              (None, 222, 222, 256)     7168      
+_________________________________________________________________
+max_pooling2d (MaxPooling2D) (None, 111, 111, 256)     0         
+_________________________________________________________________
+conv2d_1 (Conv2D)            (None, 109, 109, 256)     590080    
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 54, 54, 256)       0         
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 52, 52, 256)       590080    
+_________________________________________________________________
+max_pooling2d_2 (MaxPooling2 (None, 26, 26, 256)       0         
+_________________________________________________________________
+conv2d_3 (Conv2D)            (None, 24, 24, 256)       590080    
+_________________________________________________________________
+max_pooling2d_3 (MaxPooling2 (None, 12, 12, 256)       0         
+_________________________________________________________________
+conv2d_4 (Conv2D)            (None, 10, 10, 256)       590080    
+_________________________________________________________________
+max_pooling2d_4 (MaxPooling2 (None, 5, 5, 256)         0         
+_________________________________________________________________
+conv2d_5 (Conv2D)            (None, 3, 3, 256)         590080    
+_________________________________________________________________
+max_pooling2d_5 (MaxPooling2 (None, 1, 1, 256)         0         
+_________________________________________________________________
+flatten (Flatten)            (None, 256)               0         
+_________________________________________________________________
+fc1 (Dense)                  (None, 2048)              526336    
+_________________________________________________________________
+output (Dense)               (None, 10)                20490     
+=================================================================
+Total params: 3,504,394
+Trainable params: 3,504,394
+Non-trainable params: 0
+_________________________________________________________________
+filter_weights has shape: (3, 3, 3, 256)
+bias_weights has shape: (256,)
+filter_weights has type: <class 'numpy.ndarray'>
+bias_weights has type: <class 'numpy.ndarray'>
+Here are filter 0 weights:
+[[[-0.0470671   0.03860619  0.02180566]
+  [ 0.04407304 -0.02240166  0.04981982]
+  [ 0.03360048  0.00714786 -0.02581234]]
+
+ [[-0.02641222  0.00826907  0.00079   ]
+  [ 0.01527994 -0.01362165 -0.00815561]
+  [ 0.01376426  0.03495003  0.0195709 ]]
+
+ [[-0.04648275  0.03137089  0.05005712]
+  [-0.01505933 -0.02231331  0.04076165]
+  [-0.02040464 -0.03294593  0.03090777]]]
+
+
+
+-----------------------------------------------
+train_cnn_complete: starting to train the model
+-----------------------------------------------
+train_cnn_complete: training start time is 2020-05-18 22:33:40.062099
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 604 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.10
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 392 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.10
+
+
+********************************************************
+train_cnn_complete: starting training epoch 1
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:05.966349
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 600 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.10
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 399 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.10
+train_cnn_complete: training epoch 1 finished.
+train_cnn_complete: classification rates: train=0.10, test=0.10
+train_cnn_complete: time needed for one epoch training and testing: 0:02:22.657602
+
+
+********************************************************
+train_cnn_complete: starting training epoch 2
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:03.268139
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 667 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.11
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 410 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.10
+train_cnn_complete: training epoch 2 finished.
+train_cnn_complete: classification rates: train=0.11, test=0.10
+train_cnn_complete: time needed for one epoch training and testing: 0:02:20.575952
+
+
+********************************************************
+train_cnn_complete: starting training epoch 3
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:03.517686
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 601 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.10
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 393 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.10
+train_cnn_complete: training epoch 3 finished.
+train_cnn_complete: classification rates: train=0.10, test=0.10
+train_cnn_complete: time needed for one epoch training and testing: 0:02:21.581902
+
+
+********************************************************
+train_cnn_complete: starting training epoch 4
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.510129
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 906 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.15
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 556 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.14
+train_cnn_complete: training epoch 4 finished.
+train_cnn_complete: classification rates: train=0.15, test=0.14
+train_cnn_complete: time needed for one epoch training and testing: 0:02:19.464705
+
+
+********************************************************
+train_cnn_complete: starting training epoch 5
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:03.180467
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 1558 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.26
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 973 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.25
+train_cnn_complete: training epoch 5 finished.
+train_cnn_complete: classification rates: train=0.26, test=0.25
+train_cnn_complete: time needed for one epoch training and testing: 0:02:19.784250
+
+
+********************************************************
+train_cnn_complete: starting training epoch 6
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.485263
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 2049 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.34
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 1295 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.33
+train_cnn_complete: training epoch 6 finished.
+train_cnn_complete: classification rates: train=0.34, test=0.33
+train_cnn_complete: time needed for one epoch training and testing: 0:02:19.966192
+
+
+********************************************************
+train_cnn_complete: starting training epoch 7
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.649178
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 2419 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.40
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 1474 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.38
+train_cnn_complete: training epoch 7 finished.
+train_cnn_complete: classification rates: train=0.40, test=0.38
+train_cnn_complete: time needed for one epoch training and testing: 0:02:19.201908
+
+
+********************************************************
+train_cnn_complete: starting training epoch 8
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:03.570832
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 2928 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.49
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 1721 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.44
+train_cnn_complete: training epoch 8 finished.
+train_cnn_complete: classification rates: train=0.49, test=0.44
+train_cnn_complete: time needed for one epoch training and testing: 0:02:19.868430
+
+
+********************************************************
+train_cnn_complete: starting training epoch 9
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.771416
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 3239 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.54
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 1855 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.47
+train_cnn_complete: training epoch 9 finished.
+train_cnn_complete: classification rates: train=0.54, test=0.47
+train_cnn_complete: time needed for one epoch training and testing: 0:02:19.015929
+
+
+********************************************************
+train_cnn_complete: starting training epoch 10
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.535823
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 3620 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.60
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 1983 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.51
+train_cnn_complete: training epoch 10 finished.
+train_cnn_complete: classification rates: train=0.60, test=0.51
+train_cnn_complete: time needed for one epoch training and testing: 0:02:20.717469
+
+
+********************************************************
+train_cnn_complete: starting training epoch 11
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.644183
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 3642 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.61
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 1980 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.50
+train_cnn_complete: training epoch 11 finished.
+train_cnn_complete: classification rates: train=0.61, test=0.50
+train_cnn_complete: time needed for one epoch training and testing: 0:02:18.479145
+
+
+********************************************************
+train_cnn_complete: starting training epoch 12
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.431563
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 3824 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.64
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 1950 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.50
+train_cnn_complete: training epoch 12 finished.
+train_cnn_complete: classification rates: train=0.64, test=0.50
+train_cnn_complete: time needed for one epoch training and testing: 0:02:18.759902
+
+
+********************************************************
+train_cnn_complete: starting training epoch 13
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:04.003132
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 4130 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.69
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 2021 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.51
+train_cnn_complete: training epoch 13 finished.
+train_cnn_complete: classification rates: train=0.69, test=0.51
+train_cnn_complete: time needed for one epoch training and testing: 0:02:21.051201
+
+
+********************************************************
+train_cnn_complete: starting training epoch 14
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.930529
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 4357 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.73
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 2021 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.51
+train_cnn_complete: training epoch 14 finished.
+train_cnn_complete: classification rates: train=0.73, test=0.51
+train_cnn_complete: time needed for one epoch training and testing: 0:02:19.318411
+
+
+********************************************************
+train_cnn_complete: starting training epoch 15
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.934708
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 4612 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.77
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 2036 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.52
+train_cnn_complete: training epoch 15 finished.
+train_cnn_complete: classification rates: train=0.77, test=0.52
+train_cnn_complete: time needed for one epoch training and testing: 0:02:20.668819
+
+
+********************************************************
+train_cnn_complete: starting training epoch 16
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:03.984740
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 4987 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.83
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 2084 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.53
+train_cnn_complete: training epoch 16 finished.
+train_cnn_complete: classification rates: train=0.83, test=0.53
+train_cnn_complete: time needed for one epoch training and testing: 0:02:20.870855
+
+
+********************************************************
+train_cnn_complete: starting training epoch 17
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.728771
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 5144 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.86
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 2093 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.53
+train_cnn_complete: training epoch 17 finished.
+train_cnn_complete: classification rates: train=0.86, test=0.53
+train_cnn_complete: time needed for one epoch training and testing: 0:02:18.979032
+
+
+********************************************************
+train_cnn_complete: starting training epoch 18
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.742189
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 5210 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.87
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 2028 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.52
+train_cnn_complete: training epoch 18 finished.
+train_cnn_complete: classification rates: train=0.87, test=0.52
+train_cnn_complete: time needed for one epoch training and testing: 0:02:18.168136
+
+
+********************************************************
+train_cnn_complete: starting training epoch 19
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.562358
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 5315 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.89
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 2006 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.51
+train_cnn_complete: training epoch 19 finished.
+train_cnn_complete: classification rates: train=0.89, test=0.51
+train_cnn_complete: time needed for one epoch training and testing: 0:02:19.689156
+
+
+********************************************************
+train_cnn_complete: starting training epoch 20
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:03.915624
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 5478 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.91
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 2046 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.52
+train_cnn_complete: training epoch 20 finished.
+train_cnn_complete: classification rates: train=0.91, test=0.52
+train_cnn_complete: time needed for one epoch training and testing: 0:02:21.540086
+
+
+********************************************************
+train_cnn_complete: starting training epoch 21
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.465790
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 5467 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.91
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 2011 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.51
+train_cnn_complete: training epoch 21 finished.
+train_cnn_complete: classification rates: train=0.91, test=0.51
+train_cnn_complete: time needed for one epoch training and testing: 0:02:17.224493
+
+
+********************************************************
+train_cnn_complete: starting training epoch 22
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.434237
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 5445 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.91
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 1975 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.50
+train_cnn_complete: training epoch 22 finished.
+train_cnn_complete: classification rates: train=0.91, test=0.50
+train_cnn_complete: time needed for one epoch training and testing: 0:02:18.629862
+
+
+********************************************************
+train_cnn_complete: starting training epoch 23
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.122969
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 5699 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.95
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 1955 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.50
+train_cnn_complete: training epoch 23 finished.
+train_cnn_complete: classification rates: train=0.95, test=0.50
+train_cnn_complete: time needed for one epoch training and testing: 0:02:16.691117
+
+
+********************************************************
+train_cnn_complete: starting training epoch 24
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:01.806870
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 5656 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.94
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 1958 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.50
+train_cnn_complete: training epoch 24 finished.
+train_cnn_complete: classification rates: train=0.94, test=0.50
+train_cnn_complete: time needed for one epoch training and testing: 0:02:16.898982
+
+
+********************************************************
+train_cnn_complete: starting training epoch 25
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:04.747430
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 5661 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.94
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 1994 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.51
+train_cnn_complete: training epoch 25 finished.
+train_cnn_complete: classification rates: train=0.94, test=0.51
+train_cnn_complete: time needed for one epoch training and testing: 0:02:21.434184
+
+
+********************************************************
+train_cnn_complete: starting training epoch 26
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.769575
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 5628 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.94
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 1969 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.50
+train_cnn_complete: training epoch 26 finished.
+train_cnn_complete: classification rates: train=0.94, test=0.50
+train_cnn_complete: time needed for one epoch training and testing: 0:02:20.328943
+
+
+********************************************************
+train_cnn_complete: starting training epoch 27
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.760772
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 5763 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.96
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 1978 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.50
+train_cnn_complete: training epoch 27 finished.
+train_cnn_complete: classification rates: train=0.96, test=0.50
+train_cnn_complete: time needed for one epoch training and testing: 0:02:18.614350
+
+
+********************************************************
+train_cnn_complete: starting training epoch 28
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.359612
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 5758 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.96
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 1988 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.51
+train_cnn_complete: training epoch 28 finished.
+train_cnn_complete: classification rates: train=0.96, test=0.51
+train_cnn_complete: time needed for one epoch training and testing: 0:02:18.299030
+
+
+********************************************************
+train_cnn_complete: starting training epoch 29
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.375211
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 5841 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.97
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 1989 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.51
+train_cnn_complete: training epoch 29 finished.
+train_cnn_complete: classification rates: train=0.97, test=0.51
+train_cnn_complete: time needed for one epoch training and testing: 0:02:18.827284
+
+
+********************************************************
+train_cnn_complete: starting training epoch 30
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.439636
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 5837 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.97
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 2016 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.51
+train_cnn_complete: training epoch 30 finished.
+train_cnn_complete: classification rates: train=0.97, test=0.51
+train_cnn_complete: time needed for one epoch training and testing: 0:02:18.063607
+
+
+********************************************************
+train_cnn_complete: starting training epoch 31
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:04.789496
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 5822 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.97
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 1940 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.49
+train_cnn_complete: training epoch 31 finished.
+train_cnn_complete: classification rates: train=0.97, test=0.49
+train_cnn_complete: time needed for one epoch training and testing: 0:02:21.183329
+
+
+********************************************************
+train_cnn_complete: starting training epoch 32
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.590592
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 5454 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.91
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 1930 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.49
+train_cnn_complete: training epoch 32 finished.
+train_cnn_complete: classification rates: train=0.91, test=0.49
+train_cnn_complete: time needed for one epoch training and testing: 0:02:18.492412
+
+
+********************************************************
+train_cnn_complete: starting training epoch 33
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.382163
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 5858 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.98
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 1958 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.50
+train_cnn_complete: training epoch 33 finished.
+train_cnn_complete: classification rates: train=0.98, test=0.50
+train_cnn_complete: time needed for one epoch training and testing: 0:02:17.866994
+
+
+********************************************************
+train_cnn_complete: starting training epoch 34
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.309502
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 5908 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.98
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 1976 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.50
+train_cnn_complete: training epoch 34 finished.
+train_cnn_complete: classification rates: train=0.98, test=0.50
+train_cnn_complete: time needed for one epoch training and testing: 0:02:18.169106
+
+
+********************************************************
+train_cnn_complete: starting training epoch 35
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.286862
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 5838 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.97
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 1988 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.51
+train_cnn_complete: training epoch 35 finished.
+train_cnn_complete: classification rates: train=0.97, test=0.51
+train_cnn_complete: time needed for one epoch training and testing: 0:02:19.431732
+
+
+********************************************************
+train_cnn_complete: starting training epoch 36
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.488039
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 5647 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.94
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 1870 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.48
+train_cnn_complete: training epoch 36 finished.
+train_cnn_complete: classification rates: train=0.94, test=0.48
+train_cnn_complete: time needed for one epoch training and testing: 0:02:18.780631
+
+
+********************************************************
+train_cnn_complete: starting training epoch 37
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.626824
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 5888 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.98
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 1946 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.50
+train_cnn_complete: training epoch 37 finished.
+train_cnn_complete: classification rates: train=0.98, test=0.50
+train_cnn_complete: time needed for one epoch training and testing: 0:02:19.015297
+
+
+********************************************************
+train_cnn_complete: starting training epoch 38
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.578123
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 5903 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.98
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 1950 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.50
+train_cnn_complete: training epoch 38 finished.
+train_cnn_complete: classification rates: train=0.98, test=0.50
+train_cnn_complete: time needed for one epoch training and testing: 0:02:22.604932
+
+
+********************************************************
+train_cnn_complete: starting training epoch 39
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.565857
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 5814 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.97
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 2028 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.52
+train_cnn_complete: training epoch 39 finished.
+train_cnn_complete: classification rates: train=0.97, test=0.52
+train_cnn_complete: time needed for one epoch training and testing: 0:02:18.866889
+
+
+********************************************************
+train_cnn_complete: starting training epoch 40
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.384777
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 5817 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.97
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 1953 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.50
+train_cnn_complete: training epoch 40 finished.
+train_cnn_complete: classification rates: train=0.97, test=0.50
+train_cnn_complete: time needed for one epoch training and testing: 0:02:18.269760
+
+
+********************************************************
+train_cnn_complete: starting training epoch 41
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.064032
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 5900 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.98
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 1977 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.50
+train_cnn_complete: training epoch 41 finished.
+train_cnn_complete: classification rates: train=0.98, test=0.50
+train_cnn_complete: time needed for one epoch training and testing: 0:02:17.897770
+
+
+********************************************************
+train_cnn_complete: starting training epoch 42
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.312462
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 5807 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.97
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 1959 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.50
+train_cnn_complete: training epoch 42 finished.
+train_cnn_complete: classification rates: train=0.97, test=0.50
+train_cnn_complete: time needed for one epoch training and testing: 0:02:17.933796
+
+
+********************************************************
+train_cnn_complete: starting training epoch 43
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.389369
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 5853 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.98
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 1958 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.50
+train_cnn_complete: training epoch 43 finished.
+train_cnn_complete: classification rates: train=0.98, test=0.50
+train_cnn_complete: time needed for one epoch training and testing: 0:02:18.327523
+
+
+********************************************************
+train_cnn_complete: starting training epoch 44
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.376412
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 5963 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.99
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 1989 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.51
+train_cnn_complete: training epoch 44 finished.
+train_cnn_complete: classification rates: train=0.99, test=0.51
+train_cnn_complete: time needed for one epoch training and testing: 0:02:18.767198
+
+
+********************************************************
+train_cnn_complete: starting training epoch 45
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:01.959967
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 5715 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.95
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 1933 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.49
+train_cnn_complete: training epoch 45 finished.
+train_cnn_complete: classification rates: train=0.95, test=0.49
+train_cnn_complete: time needed for one epoch training and testing: 0:02:17.237859
+
+
+********************************************************
+train_cnn_complete: starting training epoch 46
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.423240
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 5870 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.98
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 1929 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.49
+train_cnn_complete: training epoch 46 finished.
+train_cnn_complete: classification rates: train=0.98, test=0.49
+train_cnn_complete: time needed for one epoch training and testing: 0:02:17.562975
+
+
+********************************************************
+train_cnn_complete: starting training epoch 47
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.391480
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 5955 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.99
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 1995 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.51
+train_cnn_complete: training epoch 47 finished.
+train_cnn_complete: classification rates: train=0.99, test=0.51
+train_cnn_complete: time needed for one epoch training and testing: 0:02:20.432977
+
+
+********************************************************
+train_cnn_complete: starting training epoch 48
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:03.061270
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 5860 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.98
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 1921 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.49
+train_cnn_complete: training epoch 48 finished.
+train_cnn_complete: classification rates: train=0.98, test=0.49
+train_cnn_complete: time needed for one epoch training and testing: 0:02:18.665258
+
+
+********************************************************
+train_cnn_complete: starting training epoch 49
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.411184
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 5889 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.98
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 1933 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.49
+train_cnn_complete: training epoch 49 finished.
+train_cnn_complete: classification rates: train=0.98, test=0.49
+train_cnn_complete: time needed for one epoch training and testing: 0:02:18.242666
+
+
+********************************************************
+train_cnn_complete: starting training epoch 50
+train_cnn_one_epoch: finished training batch 1 of 47. Trained images so far: 128
+train_cnn_one_epoch: finished training batch 11 of 47. Trained images so far: 1408
+train_cnn_one_epoch: finished training batch 21 of 47. Trained images so far: 2688
+train_cnn_one_epoch: finished training batch 31 of 47. Trained images so far: 3968
+train_cnn_one_epoch: finished training batch 41 of 47. Trained images so far: 5248
+train_cnn_one_epoch: time needed for training this epoch: 0:01:02.416770
+********************************************************
+
+
+test_cnn: testing model on dataset: imagenette-train
+test_cnn: there are 6000 testing images. So for a batch size of 128 we have to test 47 batches.
+test_cnn: tested mini batch 1 of 47. Tested images so far: 128
+test_cnn: tested mini batch 11 of 47. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 47. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 47. Tested images so far: 3968
+test_cnn: tested mini batch 41 of 47. Tested images so far: 5248
+test_cnn: correctly classified: 5935 of 6000 images of dataset 'imagenette-train': --> classification rate: 0.99
+test_cnn: testing model on dataset: imagenette-test
+test_cnn: there are 3925 testing images. So for a batch size of 128 we have to test 31 batches.
+test_cnn: tested mini batch 1 of 31. Tested images so far: 128
+test_cnn: tested mini batch 11 of 31. Tested images so far: 1408
+test_cnn: tested mini batch 21 of 31. Tested images so far: 2688
+test_cnn: tested mini batch 31 of 31. Tested images so far: 3925
+test_cnn: correctly classified: 1932 of 3925 images of dataset 'imagenette-test': --> classification rate: 0.49
+train_cnn_complete: training epoch 50 finished.
+train_cnn_complete: classification rates: train=0.99, test=0.49
+train_cnn_complete: time needed for one epoch training and testing: 0:02:18.207376
+
+
+
+-----------------------------------------------
+train_cnn_complete: time needed for training the complete model: 1:57:23.449722
+-----------------------------------------------
+train_cnn_complete: training end time is 2020-05-19 00:31:03.511821
