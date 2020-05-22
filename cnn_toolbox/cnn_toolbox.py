@@ -305,7 +305,7 @@ from tensorflow.keras import models, layers
     
 def create_cnn_model(nr_outputs,
                      input_shape,
-                     optimization_method="adam",
+                     optimization_method="sgd",
                      model_name="inc_nr_filters"):
     """
     Here we create the desired CNN model using the Keras API and return it
