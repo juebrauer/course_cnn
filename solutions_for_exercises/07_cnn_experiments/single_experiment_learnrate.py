@@ -77,7 +77,7 @@ from cnn_toolbox import initialize_pseudo_random_number_generators,\
 # 4.2 create the CNN
 import tensorflow as tf
 #with tf.device(device_name):
-model = create_cnn_model(model_name = cnn_name,
+model = create_cnn_model(model_name = "inc-nr-filters",
                          input_shape = img_shape,                         
                          nr_outputs = ds_train.nr_classes
                          )
@@ -99,7 +99,7 @@ history = train_cnn_complete(your_cnn=model,
 
 # 4.5 save training history for further later analysis
 if history["training_aborted_due_to_no_progress"] == False:
-    output_folder = "saved_model_histories"
+    output_folder = "tmp_results"
     prepare_output_folder(output_folder)
     fname = "{0}/{1}.history".format( output_folder, exp_name)
     save_history(history, fname)

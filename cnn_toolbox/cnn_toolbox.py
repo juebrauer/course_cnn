@@ -315,9 +315,6 @@ def create_cnn_model(nr_outputs,
 
     model = models.Sequential()
 
-    # save model name
-    model.name = model_name
-    
     if model_name == "inc-nr-filters":
 
         #1+2
@@ -643,8 +640,8 @@ import random
 def train_cnn_complete(your_cnn,
                        your_train_ds,
                        your_test_ds,
-                       check_for_progress_min_cl_rate,
                        learn_rate,
+                       check_for_progress_min_cl_rate=False,
                        same_shuffling = False,
                        stop_epochnr = None,
                        stop_classification_rate_train = None,
@@ -804,7 +801,6 @@ def train_cnn_complete(your_cnn,
     history["training_aborted_due_to_no_progress"] = training_aborted_due_to_no_progress
 
     history["learn_rate"] = learn_rate
-    history["cnn_model_name"] = your_cnn.name
     
     # 9. return data about the training history
     return history
