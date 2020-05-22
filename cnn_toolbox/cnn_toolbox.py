@@ -314,6 +314,9 @@ def create_cnn_model(nr_outputs,
     K.clear_session()
 
     model = models.Sequential()
+
+    # save model name
+    model.name = model_name
     
     if model_name == "inc-nr-filters":
 
@@ -389,7 +392,10 @@ def create_cnn_model(nr_outputs,
 
 from datetime import datetime
 
-def train_cnn_one_epoch(your_cnn, your_train_ds, show_progress=True):
+def train_cnn_one_epoch(your_cnn,
+                        your_train_ds,
+                        learn_rate,
+                        show_progress=True):
     """
     Given the specified model <your_cnn> and
     the specified dataset <your_train_ds>
@@ -418,7 +424,7 @@ def train_cnn_one_epoch(your_cnn, your_train_ds, show_progress=True):
         X,Y = your_train_ds.get_image_mini_batch(mini_batch_idx)
 
         # 3.2 how train the model with that mini batch
-        your_cnn.fit(X,Y,verbose=0)        
+        your_cnn.fit(X,Y,verbose=0, lr=learn_rate)
         
         # 3.3 output how far we are
         nr_images_trained += X.shape[0]
@@ -638,6 +644,7 @@ def train_cnn_complete(your_cnn,
                        your_train_ds,
                        your_test_ds,
                        check_for_progress_min_cl_rate,
+                       learn_rate,
                        same_shuffling = False,
                        stop_epochnr = None,
                        stop_classification_rate_train = None,
@@ -709,7 +716,10 @@ def train_cnn_complete(your_cnn,
         print("********************************************************")
         print("train_cnn_complete: starting training epoch {0}"
               .format(nr_epochs_trained+1))        
-        train_cnn_one_epoch(your_cnn, your_train_ds, show_progress=True)
+        train_cnn_one_epoch(your_cnn,
+                            your_train_ds,
+                            learn_rate,
+                            show_progress=True)
         print("********************************************************")
         print("\n")
 
@@ -792,6 +802,9 @@ def train_cnn_complete(your_cnn,
     # 8. save information in history dictionary,
     #    whether we aborted the training or not
     history["training_aborted_due_to_no_progress"] = training_aborted_due_to_no_progress
+
+    history["learn_rate"] = learn_rate
+    history["cnn_model_name"] = your_cnn.name
     
     # 9. return data about the training history
     return history
