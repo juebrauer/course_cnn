@@ -301,11 +301,11 @@ from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.vgg16 import preprocess_input
 from tensorflow.keras import backend as K
 from tensorflow.keras import models, layers
-    
+from tensorflow import keras    
     
 def create_cnn_model(nr_outputs,
                      input_shape,
-                     optimization_method="sgd",
+                     learn_rate,
                      model_name="inc_nr_filters"):
     """
     Here we create the desired CNN model using the Keras API and return it
@@ -375,7 +375,8 @@ def create_cnn_model(nr_outputs,
 
 
     # for all models: use the same optimizer, loss and learn rate:
-    model.compile(optimizer=optimization_method, loss='categorical_crossentropy')
+    my_optimizer = keras.optimizers.SGD(learning_rate=learn_rate)
+    model.compile(optimizer=my_optimizer, loss='categorical_crossentropy')
 
     # return the model just built
     return model
@@ -391,7 +392,6 @@ from datetime import datetime
 
 def train_cnn_one_epoch(your_cnn,
                         your_train_ds,
-                        learn_rate,
                         show_progress=True):
     """
     Given the specified model <your_cnn> and
@@ -421,7 +421,7 @@ def train_cnn_one_epoch(your_cnn,
         X,Y = your_train_ds.get_image_mini_batch(mini_batch_idx)
 
         # 3.2 how train the model with that mini batch
-        your_cnn.fit(X,Y,verbose=0, lr=learn_rate)
+        your_cnn.fit(X,Y,verbose=0)
         
         # 3.3 output how far we are
         nr_images_trained += X.shape[0]
@@ -640,7 +640,6 @@ import random
 def train_cnn_complete(your_cnn,
                        your_train_ds,
                        your_test_ds,
-                       learn_rate,
                        check_for_progress_min_cl_rate=False,
                        same_shuffling = False,
                        stop_epochnr = None,
@@ -715,7 +714,6 @@ def train_cnn_complete(your_cnn,
               .format(nr_epochs_trained+1))        
         train_cnn_one_epoch(your_cnn,
                             your_train_ds,
-                            learn_rate,
                             show_progress=True)
         print("********************************************************")
         print("\n")
