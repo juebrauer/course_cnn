@@ -645,7 +645,7 @@ def train_cnn_complete(your_cnn,
                        stop_epochnr = None,
                        stop_classification_rate_train = None,
                        show_progress=True,
-                       stop_training_if_no_progress = True,
+                       stop_training_if_no_progress = False,
                        check_for_progress_epoch_nr = 5
                        ):
     """
@@ -686,12 +686,13 @@ def train_cnn_complete(your_cnn,
     
     # 5. compute classification rate on
     #    training and testing data BEFORE training ... 
-    cl_rate_train = test_cnn(your_cnn, your_train_ds)
-    cl_rate_test  = test_cnn(your_cnn, your_test_ds)        
-    
-    # 6. ... and store both rates
-    history["cl_rate_train"].append( cl_rate_train )
-    history["cl_rate_test"].append( cl_rate_test )
+    if True:
+	    cl_rate_train = test_cnn(your_cnn, your_train_ds)
+	    cl_rate_test  = test_cnn(your_cnn, your_test_ds)        
+	    
+	    # 6. ... and store both rates
+	    history["cl_rate_train"].append( cl_rate_train )
+	    history["cl_rate_test"].append( cl_rate_test )
     
     
     # 7. train an epoch in each loop
@@ -721,13 +722,14 @@ def train_cnn_complete(your_cnn,
         # 7.3
         # compute classification rate on
         # training and testing data
-        cl_rate_train = test_cnn(your_cnn, your_train_ds)
-        cl_rate_test  = test_cnn(your_cnn, your_test_ds)
+        if True:
+           cl_rate_train = test_cnn(your_cnn, your_train_ds)
+           cl_rate_test  = test_cnn(your_cnn, your_test_ds)
         
-        # 7.4
-        # store both rates
-        history["cl_rate_train"].append( cl_rate_train )
-        history["cl_rate_test"].append( cl_rate_test )
+           # 7.4
+           # store both rates
+           history["cl_rate_train"].append( cl_rate_train )
+           history["cl_rate_test"].append( cl_rate_test )
         
         # 7.5
         # one epoch trained more
@@ -798,8 +800,6 @@ def train_cnn_complete(your_cnn,
     #    whether we aborted the training or not
     history["training_aborted_due_to_no_progress"] = training_aborted_due_to_no_progress
 
-    history["learn_rate"] = learn_rate
-    
     # 9. return data about the training history
     return history
     

@@ -98,8 +98,10 @@ history = train_cnn_complete(your_cnn=model,
                              stop_epochnr=50)
 
 # 4.5 save training history for further later analysis
-if history["training_aborted_due_to_no_progress"] == False:
-    output_folder = "tmp_results"
-    prepare_output_folder(output_folder)
-    fname = "{0}/{1}.history".format( output_folder, exp_name)
-    save_history(history, fname)
+output_folder = "tmp_results"
+prepare_output_folder(output_folder)
+fname = "{0}/{1}.history".format( output_folder, exp_name)
+history["learn_rate"] = learn_rate
+print("history: {0}".format(history))
+print("Saving history to file: {0}".format(fname))
+save_history(history, fname)
