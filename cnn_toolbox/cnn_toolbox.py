@@ -305,7 +305,7 @@ from tensorflow import keras
     
 def create_cnn_model(nr_outputs,
                      input_shape,
-                     learn_rate,
+                     learn_rate = None,
                      model_name="inc_nr_filters"):
     """
     Here we create the desired CNN model using the Keras API and return it
@@ -375,7 +375,15 @@ def create_cnn_model(nr_outputs,
 
 
     # for all models: use the same optimizer, loss and learn rate:
-    my_optimizer = keras.optimizers.SGD(learning_rate=learn_rate)
+    if learn_rate == None:
+        # learn rate not specified by user,
+        # use default learn rate
+        my_optimizer = keras.optimizers.SGD()
+    else:
+        # learn rate specified by user,
+        # use this desired learn rate
+        my_optimizer = keras.optimizers.SGD(learning_rate=learn_rate)
+    
     model.compile(optimizer=my_optimizer, loss='categorical_crossentropy')
 
     # return the model just built
@@ -843,8 +851,46 @@ def load_history(fname):
 
 from pathlib import Path
 
+
 def prepare_output_folder(folder_name):
     """
     Creates the specified folder, if it does not yet exist
     """
     Path(folder_name).mkdir(parents=True, exist_ok=True)
+
+    
+    
+def deactivate_conv_layers_for_training(model,
+                                        show_layer_information=True):
+    """
+    If we conduct an experiment with a random feature hierarchy,
+    we use this helper method to set only the FC layers to
+    trainable and keep the rest of the model layers randomly and
+    untrained.
+    """
+
+    if show_layer_information:
+        print("Layers of the model BEFORE defining which to train:")
+        for layer in model.layers:
+            print("{}: trainable={}"
+                   .format(layer.name, layer.trainable))
+
+    
+    for layer in model.layers:
+        if "conv" in layer.name:
+            layer.trainable = False
+    
+    ############################################
+    # only the specified layers will be trained!
+    ############################################
+    #for layer_name in list_of_layer_names_to_train:    
+    #    l = model.get_layer( layer_name )
+    #    l.trainable = True
+
+    if show_layer_information:
+        print("Layers of the model AFTER defining which to train:")
+        for layer in model.layers:
+            print("{}: trainable={}"
+                   .format(layer.name, layer.trainable))
+
+    model.compile(optimizer=keras.optimizers.SGD(), loss='categorical_crossentropy')
