@@ -102,7 +102,7 @@ print(filter_weights[:,:,:,0])
 history = train_cnn_complete(your_cnn=model,
                              your_train_ds=ds_train,
                              your_test_ds=ds_test,
-                             stop_epochnr=1)
+                             stop_epochnr=50)
 
 
 # 4.6 save training history for further later analysis
