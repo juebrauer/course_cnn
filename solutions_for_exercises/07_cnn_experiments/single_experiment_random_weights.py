@@ -7,8 +7,16 @@ print(sys.path)
 ##################################################################
 import sys
 print("Here are all command line arguments: {0}".format( sys.argv ) )
+
 exp_name = sys.argv[1]
-use_rnd_weights = bool(sys.argv[2])
+
+if sys.argv[2] == "True":
+    use_rnd_weights = True
+    print("I will use random conv weights")
+else:
+    use_rnd_weights = False
+    print("I will train the conv weights")
+    
 dataset_name = sys.argv[3]
 
 
@@ -85,9 +93,14 @@ model.summary()
 
 
 # 4.3 deactivate CONV layers for training
-from cnn_toolbox import deactivate_conv_layers_for_training
-deactivate_conv_layers_for_training(model)
-model.summary()
+if use_rnd_weights:    
+    from cnn_toolbox import deactivate_conv_layers_for_training
+    deactivate_conv_layers_for_training(model)
+    model.summary()
+    print("Conv weights will NOT be trained!")
+else:
+    print("Conv weights will be trained!")
+    
 
 
 # 4.4 plausiblity check whether the weights are really different
