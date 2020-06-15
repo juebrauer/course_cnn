@@ -4,7 +4,6 @@ print("all_experiments_random_weights.py started.")
 
 exp_nr = 40
 
-exp_nr = 0
 for dataset_name in ["imagenette", "imagewoof"]:
 
     for run in range(1,11):
@@ -12,8 +11,6 @@ for dataset_name in ["imagenette", "imagewoof"]:
         for use_rnd_weights in [False]:
             
             exp_nr +=1
-
-            exp_nr += 1
 
             exp_name = "{0:0>4}".format(exp_nr)
 
