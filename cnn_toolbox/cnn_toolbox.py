@@ -893,5 +893,5 @@ def deactivate_conv_layers_for_training(model,
             print("{}: trainable={}"
                    .format(layer.name, layer.trainable))
 
-    #model.compile(optimizer=keras.optimizers.SGD(), loss='categorical_crossentropy')
-    model.compile(optimizer='adam', loss='categorical_crossentropy')
+    model.compile(optimizer=keras.optimizers.SGD(), loss='categorical_crossentropy')
+    #model.compile(optimizer='adam', loss='categorical_crossentropy')
